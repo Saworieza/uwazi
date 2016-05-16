@@ -1,0 +1,2 @@
+module CoalitionsHelper
+end

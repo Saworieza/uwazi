@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @coalition.name %>
+</p>
+
+<p>
+  <strong>Abbrev:</strong>
+  <%= @coalition.abbrev %>
+</p>
+
+<%= link_to 'Edit', edit_coalition_path(@coalition) %> |
+<%= link_to 'Back', coalitions_path %>
