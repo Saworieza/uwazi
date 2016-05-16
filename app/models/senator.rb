@@ -1,4 +1,4 @@
-class Politician < ActiveRecord::Base
+class Senator < ActiveRecord::Base
 	has_many :bills
 
 	#remeber to restrict, cn only belong to one party

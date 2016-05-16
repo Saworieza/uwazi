@@ -37,6 +37,7 @@ gem 'will_paginate-bootstrap'
 
 
 gem 'devise'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 
 # gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library

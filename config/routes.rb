@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   resources :parties
-  resources :politicians
+  resources :senators
   resources :counties
   resources :coalitions
   resources :coalitions

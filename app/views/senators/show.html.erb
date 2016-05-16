@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @senator.full_name %>
+</p>
+
+<p>
+  <strong>Born:</strong>
+  <%= @senator.born %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @senator.telephone %>
+</p>
+
+<p>
+ <strong>Party</strong>
+ <%#= @senator.party.abbrev %>
+</p>
+
+<%= link_to 'Edit', edit_senator_path(@senator) %> |
+<%= link_to 'Back', senators_path %>

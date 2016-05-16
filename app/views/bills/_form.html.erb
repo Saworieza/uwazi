@@ -16,13 +16,18 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :summary %><br>
-    <%= f.text_area :summary %>
+    <%= f.label :Sponsor %>
+    <%= f.collection_select :politician_id, Politician.all, :id, :full_name %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
+    <%= f.label :introduced %><br>
     <%= f.date_select :date %>
   </div>
+  <div class="field">
+    <%= f.label :summary %><br>
+    <%= f.cktext_area :summary, rows: 10 %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

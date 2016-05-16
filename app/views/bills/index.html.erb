@@ -7,7 +7,7 @@
     <tr>
       <th>Title</th>
       <th>Summary</th>
-      <th>Date</th>
+      <th>Date Introduced</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,8 +15,8 @@
   <tbody>
     <% @bills.each do |bill| %>
       <tr style="border-bottom:thin solid grey;">
-        <td><%= link_to (bill.title), bill %></td>
-        <td><%= truncate(bill.summary, :ommision => "... Read More", :length => 150) %></td>
+        <td><%= link_to (bill.title.html_safe), bill %></td>
+        <td><%= truncate(bill.summary, :ommision => "... Read More", :length => 150, separator: ' ', :escape => false) %></td>
         <td><%= bill.date %></td>
         <td>
         <!--<%= link_to upvote_bill_path(bill), method: :put do %>
@@ -28,6 +28,7 @@
           Downvote
           <%= bill.get_downvotes.size %>
         <% end %></td>-->
+        
       </tr>
       
     <% end %>

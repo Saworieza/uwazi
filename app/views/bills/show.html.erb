@@ -2,18 +2,19 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @bill.title %>
+  <%= @bill.title.html_safe %>
 </p>
-
 <p>
-  <strong>Summary:</strong>
-  <%= @bill.summary %>
-</p>
-
-<p>
-  <strong>Date:</strong>
+  <strong>Introduced:</strong>
   <%= @bill.date %>
 </p>
+<h4>About this Bill</h4>
+<p>
+  <strong>Summary:</strong>
+  <%= @bill.summary.html_safe %>
+</p>
+
+
 <p>
   <%= link_to upvote_bill_path(@bill), method: :put do %>
           Upvote
@@ -26,6 +27,8 @@
           <%= @bill.get_downvotes.size %>
         <% end %>
         </p>
+        
+
 
 <%= link_to 'Edit', edit_bill_path(@bill) %> |
 <%= link_to 'Back', bills_path %> |

@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: 15a0e47344acd8a223cf4fc377a6c4be96ba6cda
+  specs:
+    ckeditor (4.1.6)
+      cocaine
+      orm_adapter (~> 0.5.0)
+
+GIT
   remote: git://github.com/rweng/jquery-datatables-rails.git
   revision: b8e6b6fa51e0074ea44b4771a68b1817a14023fc
   specs:
@@ -269,6 +277,7 @@ DEPENDENCIES
   byebug
   cancancan
   chartkick
+  ckeditor!
   coffee-rails (~> 4.1.0)
   devise
   font-awesome-sass
@@ -302,4 +311,4 @@ DEPENDENCIES
   will_paginate-bootstrap
 
 BUNDLED WITH
-   1.11.2
+   1.12.1
