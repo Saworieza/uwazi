@@ -8,14 +8,19 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to "Uwazi", root_url, class: "navbar-brand" %>
+     
     </div>
     <div class="collapse navbar-collapse" id="navbar-top">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Bills', bills_path %></li>
+        <li><%= link_to 'About' %></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><%= link_to(current_user.username) %></li>
           <li><%= link_to('Sign out', destroy_user_session_path, method: :delete) %></li>
         <% else %>
-          <li><%= link_to 'About' %></li>
+          
           <li><%= link_to 'Sign up', new_user_registration_path %></li>
           <li><%= link_to 'Sign in', user_session_path %></li>
         <% end %>

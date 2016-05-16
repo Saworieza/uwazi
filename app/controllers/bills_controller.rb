@@ -20,6 +20,18 @@ class BillsController < ApplicationController
   # GET /bills/1/edit
   def edit
   end
+  
+  def upvote
+    @bill = Bill.find(params[:id])
+    @bill.upvote_by current_user
+    redirect_to bills_path
+  end
+  
+  def downvote
+    @bill = Bill.find(params[:id])
+    @bill.downvote_by current_user
+    redirect_to bills_path
+  end
 
   # POST /bills
   # POST /bills.json
