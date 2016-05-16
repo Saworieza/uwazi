@@ -1,21 +1,16 @@
-<%= form_for @senator, html: { multipart: true } do |f| %>
-  <% if @senator.errors.any? %>
+<%= form_for(@mp) do |f| %>
+  <% if @mp.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@senator.errors.count, "error") %> prohibited this senator from being saved:</h2>
+      <h2><%= pluralize(@mp.errors.count, "error") %> prohibited this mp from being saved:</h2>
 
       <ul>
-      <% @senator.errors.full_messages.each do |message| %>
+      <% @mp.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= image_tag @senator.avatar.url(:medium)%>
-  </div>
-  <div class="field">
-    <%= f.file_field :avatar %>
-  </div>
+
   <div class="field">
     <%= f.label :full_name %><br>
     <%= f.text_field :full_name %>
@@ -46,11 +41,11 @@
     <%= f.label :County %>
     <%= f.collection_select :county_id, County.all, :id, :name %>
   </div>
-  
   <div class="field">
-    <%= f.label :description %>
-    <%= f.cktext_area :description, rows: 10 %>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

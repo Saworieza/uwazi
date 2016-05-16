@@ -24,4 +24,5 @@
 </p>
 
 <%= link_to 'Edit', edit_senator_path(@senator) %> |
-<%= link_to 'Back', senators_path %>
+<%= link_to 'Back', senators_path %> |
+<%= link_to 'Delete', @senator, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -16,12 +16,9 @@
     <% @senators.each do |senator| %>
       <tr>
         <td><%= image_tag senator.avatar.url(:thumb) %></td>
-        <td><%= senator.full_name %></td>
+        <td><%= link_to (senator.full_name), senator %></td>
         <td><%= senator.born %></td>
         <td><%= senator.telephone %></td>
-        <td><%= link_to 'Show', senator %></td>
-        <td><%= link_to 'Edit', edit_senator_path(senator) %></td>
-        <td><%= link_to 'Destroy', senator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

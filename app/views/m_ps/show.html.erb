@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @mp.full_name %>
+</p>
+
+<p>
+  <strong>Born:</strong>
+  <%= @mp.born %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @mp.telephone %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @mp.description %>
+</p>
+
+<p>
+  <strong>Web:</strong>
+  <%= @mp.web %>
+</p>
+
+<%= link_to 'Edit', edit_mp_path(@mp) %> |
+<%= link_to 'Back', mps_path %>
