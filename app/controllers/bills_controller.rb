@@ -30,7 +30,7 @@ class BillsController < ApplicationController
   def downvote
     @bill = Bill.find(params[:id])
     @bill.downvote_by current_user
-    redirect_to bills_path
+    redirect_to :back
   end
 
   # POST /bills

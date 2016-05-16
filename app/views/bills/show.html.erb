@@ -14,6 +14,18 @@
   <strong>Date:</strong>
   <%= @bill.date %>
 </p>
+<p>
+  <%= link_to upvote_bill_path(@bill), method: :put do %>
+          Upvote
+          <%= @bill.get_upvotes.size %>
+        <% end %>
+        </p>
+
+        <p><%= link_to downvote_bill_path(@bill), method: :put do %>
+          Downvote
+          <%= @bill.get_downvotes.size %>
+        <% end %>
+        </p>
 
 <%= link_to 'Edit', edit_bill_path(@bill) %> |
 <%= link_to 'Back', bills_path %> |
