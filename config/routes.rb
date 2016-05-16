@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
   end
   
+  get 'about' => 'static#about', as: :about
   devise_for :users
   root 'home#index'
 end

@@ -14,11 +14,12 @@
       <ul class="nav navbar-nav">
         <li><%= link_to 'Bills', bills_path %></li>
         <li><%= link_to 'Counties', counties_path %></li>
-        <li><%= link_to 'About' %></li>
+        <li><%= link_to 'Senators', senators_path %></li>
+        <li><%= link_to 'About', about_path  %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><%= link_to(current_user.username) %></li>
+          <li><%= link_to (current_user.username), edit_user_registration_path %></li>
           <li><%= link_to('Sign out', destroy_user_session_path, method: :delete) %></li>
         <% else %>
           

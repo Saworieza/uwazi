@@ -1,4 +1,4 @@
-<%= form_for(@senator) do |f| %>
+<%= form_for @senator, html: { multipart: true } do |f| %>
   <% if @senator.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@senator.errors.count, "error") %> prohibited this senator from being saved:</h2>
@@ -10,7 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= image_tag @senator.avatar.url(:medium)%>
+  </div>
+  <div class="field">
+    <%= f.file_field :avatar %>
+  </div>
   <div class="field">
     <%= f.label :full_name %><br>
     <%= f.text_field :full_name %>
@@ -36,6 +41,11 @@
   <div class="field">
     <%= f.label :County %>
     <%= f.collection_select :county_id, County.all, :id, :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.cktext_area :description, rows: 10 %>
   </div>
   <div class="actions">
     <%= f.submit %>

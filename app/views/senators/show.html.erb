@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag @senator.avatar.url(:thumb)%>
+</p>
+<p>
   <strong>Full name:</strong>
   <%= @senator.full_name %>
 </p>
