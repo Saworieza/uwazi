@@ -69,6 +69,6 @@ class SenatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def senator_params
-      params.require(:senator).permit(:avatar, :full_name, :description, :born, :telephone)
+      params.require(:senator).permit(:avatar, :full_name, :description, :party_id, :coalition_id, :county_id, :born, :telephone, :web)
     end
 end

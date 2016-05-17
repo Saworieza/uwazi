@@ -17,9 +17,11 @@ gem 'adminlte2-rails'
 gem 'prawn'
 
 gem 'acts_as_votable', '~> 0.10.0'
-gem 'acts_as_commentable'
+gem 'acts_as_commentable_with_threading'  
+#which depends on
+gem 'awesome_nested_set'
 gem 'public_activity'
-gem "acts_as_follower"
+gem 'acts_as_follower'
 
 gem 'prawn-table'
 gem 'groupdate'

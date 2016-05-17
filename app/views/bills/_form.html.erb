@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :Sponsor %>
-    <%= f.collection_select :politician_id, Politician.all, :id, :full_name %>
+    <%= f.collection_select :senator_id, Senator.all, :id, :full_name %>
   </div>
   <div class="field">
     <%= f.label :introduced %><br>

@@ -8,9 +8,12 @@
   <strong>Introduced:</strong>
   <%= @bill.date %>
 </p>
-<h4>About this Bill</h4>
 <p>
-  <strong>Summary:</strong>
+  <strong>Sponsor</strong>
+  <%= @bill.senator_id%>
+</p>
+<p>
+  <strong>About this Bill</strong>
   <%= @bill.summary.html_safe %>
 </p>
 
@@ -33,3 +36,6 @@
 <%= link_to 'Edit', edit_bill_path(@bill) %> |
 <%= link_to 'Back', bills_path %> |
 <td><%= link_to 'Destroy', @bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+<%= render partial: "comments/template", locals: {commentable: @bill, new_comment: @comment} %>  

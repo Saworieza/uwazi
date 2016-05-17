@@ -11,6 +11,8 @@ class BillsController < ApplicationController
   # GET /bills/1
   # GET /bills/1.json
   def show
+    @bill = Bill.find(params[:id])
+    @new_comment = Comment.build_from(@bill, current_user.id, "")
   end
 
   # GET /bills/new
@@ -25,7 +27,7 @@ class BillsController < ApplicationController
   def upvote
     @bill = Bill.find(params[:id])
     @bill.upvote_by current_user
-    redirect_to bills_path
+    redirect_to :back
   end
   
   def downvote
@@ -82,6 +84,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:title, :summary, :date)
+      params.require(:bill).permit(:title, :summary, :date, :politician_id)
     end
 end
