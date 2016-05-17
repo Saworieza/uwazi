@@ -16,16 +16,11 @@
     <% @bills.each do |bill| %>
       <tr style="border-bottom:thin solid grey;">
         <td><%= link_to (bill.title.html_safe), bill %></td>
-        <td><%= truncate(bill.summary, :ommision => "... Read More", :length => 150, separator: ' ', :escape => false) %></td>
+        <td><%= truncate(bill.summary, :length => 150, separator: ' ', :escape => false) %></td>
         <td><%= bill.date %></td>
-        <td><%#= pluralize(bill.comments.count, "Comment") %></td>
-        <td>
-          <%= bill.get_upvotes.size %>
-        </td>
-
-        <td>
-          <%= bill.get_downvotes.size %>
-        </td>
+        <td><%#= pluralize(bill.comments.size, "Comment") %></td>
+        <td><%= pluralize(bill.get_upvotes.size, "Vote") %></td>
+        <td><%= pluralize(bill.get_downvotes.size, "Vote") %></td>
         
       </tr>
       

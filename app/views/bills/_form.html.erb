@@ -12,7 +12,9 @@
   <% end %>
 
 
-
+  <div class="field">
+    <%= image_tag @bill.document.url(:thumbnail) %>
+  </div>
   <div class="field">
     <%= f.file_field :document %>
   </div>
