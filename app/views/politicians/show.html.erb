@@ -21,10 +21,31 @@
   <strong>Web:</strong>
   <%= @politician.web %>
 </p>
+<p>
+  <strong>Contest:</strong>
+  <%= @politician.contest_type %>
+</p>
+
+<p>
+  <strong>Primary and Secondary:</strong>
+  <%= @politician.primary_secondary_school %>
+</p>
+<p>
+  <strong>Under Grad:</strong>
+  <%= @politician.undergraduate_school %>
+</p>
+<p>
+  <strong>Grad School:</strong>
+  <%= @politician.graduate_school %>
+</p>
+<p>
+  <strong>Prev Position:</strong>
+  <%= @politician.previous_position %>
+</p>
 
 <p>
   <strong>Description:</strong>
-  <%= @politician.description.html_safe %>
+  <%= @politician.description %>
 </p>
 
 <p>

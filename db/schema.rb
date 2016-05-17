@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517142246) do
+ActiveRecord::Schema.define(version: 20160517155517) do
 
   create_table "bills", force: :cascade do |t|
     t.string   "title"
@@ -67,11 +67,21 @@ ActiveRecord::Schema.define(version: 20160517142246) do
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "contests", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "contestType"
+    t.string   "location_type"
+    t.string   "code"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "counties", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "code"
   end
 
   create_table "parties", force: :cascade do |t|
@@ -90,8 +100,8 @@ ActiveRecord::Schema.define(version: 20160517142246) do
     t.string   "web"
     t.text     "description"
     t.string   "email"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -99,6 +109,12 @@ ActiveRecord::Schema.define(version: 20160517142246) do
     t.integer  "county_id"
     t.integer  "party_id"
     t.integer  "coalition_id"
+    t.integer  "contest_id"
+    t.integer  "contest_type"
+    t.text     "primary_secondary_school"
+    t.text     "undergraduate_school"
+    t.text     "graduate_school"
+    t.text     "previous_position"
   end
 
   create_table "users", force: :cascade do |t|
