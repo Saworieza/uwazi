@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<p>
+  <strong></strong>
+  <%= image_tag @bill.document.url(:medium) %>
+</p>
 <p>
   <strong>Title:</strong>
   <%= @bill.title.html_safe %>

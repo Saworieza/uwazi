@@ -40,9 +40,12 @@ class BillsController < ApplicationController
   # POST /bills.json
   def create
     @bill = Bill.new(bill_params)
-
+     @bill.document = params[:bill][:document]
+    
     respond_to do |format|
       if @bill.save
+        #respond_with @bill
+        
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
         format.json { render :show, status: :created, location: @bill }
       else
@@ -51,6 +54,8 @@ class BillsController < ApplicationController
       end
     end
   end
+  
+  
 
   # PATCH/PUT /bills/1
   # PATCH/PUT /bills/1.json
@@ -84,6 +89,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:title, :summary, :date, :politician_id)
+      params.require(:bill).permit(:document, :title, :summary, :date, :politician_id)
     end
 end
