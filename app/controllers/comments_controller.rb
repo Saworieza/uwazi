@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController  
   before_action :authenticate_user!
-
+  
   def create
     commentable = commentable_type.constantize.find(commentable_id)
     @comment = Comment.build_from(commentable, current_user.id, body)

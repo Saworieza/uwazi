@@ -12,11 +12,13 @@ class BillsController < ApplicationController
   # GET /bills/1.json
   def show
     @bill = Bill.find(params[:id])
+    
     @new_comment = Comment.build_from(@bill, current_user.id, "")
   end
 
   # GET /bills/new
   def new
+    
     @bill = Bill.new
   end
 

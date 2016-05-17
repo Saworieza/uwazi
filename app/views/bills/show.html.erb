@@ -37,5 +37,6 @@
 <%= link_to 'Back', bills_path %> |
 <td><%= link_to 'Destroy', @bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
-
+<% if user_signed_in? %>
 <%= render partial: "comments/template", locals: {commentable: @bill, new_comment: @comment} %>  
+<% end %>
