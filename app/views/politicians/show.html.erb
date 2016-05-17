@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <%= image_tag @politician.avatar.url(:thumb) %>
+</p>
+<p>
+  <strong>Full name:</strong>
+  <%= @politician.full_name %>
+</p>
+
+<p>
+  <strong>Born:</strong>
+  <%= @politician.born %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @politician.telephone %>
+</p>
+
+<p>
+  <strong>Web:</strong>
+  <%= @politician.web %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @politician.description.html_safe %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @politician.email %>
+</p>
+
+<%= link_to 'Edit', edit_politician_path(@politician) %> |
+<%= link_to 'Back', politicians_path %>

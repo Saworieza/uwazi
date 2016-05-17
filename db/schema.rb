@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517120948) do
+ActiveRecord::Schema.define(version: 20160517142246) do
 
   create_table "bills", force: :cascade do |t|
     t.string   "title"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20160517120948) do
     t.date     "date"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.integer  "senator_id"
     t.string   "document_file_name"
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
+    t.integer  "politician_id"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -74,22 +74,6 @@ ActiveRecord::Schema.define(version: 20160517120948) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "mps", force: :cascade do |t|
-    t.string   "full_name"
-    t.date     "born"
-    t.string   "telephone"
-    t.text     "description"
-    t.string   "web"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "coalition_id"
-    t.integer  "county_id"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-  end
-
   create_table "parties", force: :cascade do |t|
     t.string   "name"
     t.date     "founded"
@@ -99,21 +83,22 @@ ActiveRecord::Schema.define(version: 20160517120948) do
     t.integer  "coalition_id"
   end
 
-  create_table "senators", force: :cascade do |t|
-    t.string   "full_name"
+  create_table "politicians", force: :cascade do |t|
+    t.text     "full_name"
     t.date     "born"
     t.string   "telephone"
+    t.string   "web"
+    t.text     "description"
+    t.string   "email"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.integer  "party_id"
-    t.integer  "coalition_id"
-    t.integer  "county_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.text     "description"
-    t.string   "web"
+    t.integer  "county_id"
+    t.integer  "party_id"
+    t.integer  "coalition_id"
   end
 
   create_table "users", force: :cascade do |t|

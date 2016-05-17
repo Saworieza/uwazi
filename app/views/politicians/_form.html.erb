@@ -1,0 +1,48 @@
+<%= form_for @politician, html: { multipart: true } do |f| %>
+  <% if @politician.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@politician.errors.count, "error") %> prohibited this politician from being saved:</h2>
+
+      <ul>
+      <% @politician.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= image_tag @politician.avatar.url(:medium) %>
+  </div>
+  
+  <div class="field">
+    <%= f.file_field :avatar %>
+  </div>
+  <div class="field">
+    <%= f.label :full_name %><br>
+    <%= f.text_field :full_name %>
+  </div>
+  <div class="field">
+    <%= f.label :born %><br>
+    <%= f.date_select :born %>
+  </div>
+  <div class="field">
+    <%= f.label :telephone %><br>
+    <%= f.text_field :telephone %>
+  </div>
+  <div class="field">
+    <%= f.label :web %><br>
+    <%= f.text_field :web %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.cktext_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
