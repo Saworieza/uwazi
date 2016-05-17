@@ -18,16 +18,14 @@
         <td><%= link_to (bill.title.html_safe), bill %></td>
         <td><%= truncate(bill.summary, :ommision => "... Read More", :length => 150, separator: ' ', :escape => false) %></td>
         <td><%= bill.date %></td>
+        <td><%#= pluralize(bill.comments.count, "Comment") %></td>
         <td>
-        <!--<%= link_to upvote_bill_path(bill), method: :put do %>
-          Upvote
           <%= bill.get_upvotes.size %>
-        <% end %></td>
+        </td>
 
-        <td><%= link_to downvote_bill_path(bill), method: :put do %>
-          Downvote
+        <td>
           <%= bill.get_downvotes.size %>
-        <% end %></td>-->
+        </td>
         
       </tr>
       
