@@ -7,4 +7,6 @@ class Politician < ActiveRecord::Base
     belongs_to :coalition
     belongs_to :county
     belongs_to :party
+    
+    belongs_to :contest 
 end
