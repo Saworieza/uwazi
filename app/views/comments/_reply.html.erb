@@ -32,7 +32,7 @@
         
       
       
-      <div class="comment-nav"><a href="#" class="comment-reply">reply</a></div>
+      <div class="comment-nav"><p><a href="#" class="comment-reply">reply</a></p></div>
       <div class="reply-form">
         <%= form_for @new_comment do |f| %>
           <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>

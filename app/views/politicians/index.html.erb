@@ -18,7 +18,7 @@
   <tbody>
     <% @politicians.each do |politician| %>
       <tr>
-        <td><%= image_tag politician.avatar.url(:thumb) %></td>
+        <td><%= image_tag politician.avatar.url(:thumb), class: "avatar-thumb" %></td>
         <td><%= politician.full_name %></td>
         <td><%= politician.born %></td>
         <td><%= politician.telephone %></td>

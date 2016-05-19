@@ -11,10 +11,19 @@
   <strong>Introduced:</strong>
   <%= @bill.date %>
 </p>
-<p>
-  <strong>Sponsor</strong>
-  <%= @bill.politician_id%>
-</p>
+<div class="col-xs-12">
+  <div class="col-xs-4">
+    <strong>Sponsor</strong>
+    <%= @bill.politician.full_name %>
+    <p>
+      <%= image_tag @bill.politician.avatar.url(:thumb), class: "avatar-thumb"%>
+    </p>
+    <div class="col-xs-8">
+      <%= truncate(@bill.politician.description, :ommision => "... Read More", :length => 100)  %>
+    </div>
+  </div>
+</div>
+
 <p>
   <strong>About this Bill</strong>
   <%= @bill.summary.html_safe %>
