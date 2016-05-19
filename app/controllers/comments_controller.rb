@@ -1,6 +1,20 @@
 class CommentsController < ApplicationController  
   before_action :authenticate_user!
   
+  #lets vote
+  def upvote 
+    @link = Comment.find(params[:id])
+   @link.upvote_by current_user
+    redirect_to :back
+  end  
+
+  def downvote
+   @link = Comment.find(params[:id])
+    @link.downvote_by current_user
+   redirect_to :back
+  end
+
+
   def create
     commentable = commentable_type.constantize.find(commentable_id)
     @comment = Comment.build_from(commentable, current_user.id, body)

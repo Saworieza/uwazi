@@ -13,6 +13,10 @@ class BillsController < ApplicationController
   def show
     @bill = Bill.find(params[:id])
     @new_comment = Comment.build_from(@bill, current_user.id, "")
+    
+    #trying to get the user who commented. mot yet done
+    #@user_who_commented = @current_user
+    #@comment = Comment.build_from( @article, @user_who_commented.id)
   end
 
   # GET /bills/new

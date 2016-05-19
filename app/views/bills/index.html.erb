@@ -19,7 +19,8 @@
         <td><%= truncate(bill.summary, :length => 150, separator: ' ', :escape => false) %></td>
         <td><%= bill.date %></td>
         <td><%#= pluralize(bill.comments.size, "Comment") %></td>
-        <td><%= pluralize(bill.get_upvotes.size, "Vote") %></td>
+        <td><p><%= bill.get_upvotes.size %> Support</p></td>
+        <td><%#= pluralize(bill.get_upvotes.size, "Vote") %></td>
         <td><%= pluralize(bill.get_downvotes.size, "Vote") %></td>
       </tr>
     <% end %>

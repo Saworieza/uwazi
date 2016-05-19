@@ -7,7 +7,13 @@ Rails.application.routes.draw do
   resources :counties
   resources :coalitions
   resources :coalitions
-  resources :comments
+  resources :comments do
+    member do
+      put "upvote", to: "comments#upvote"
+      put "downvote", to: "comments#downvote"
+    end
+  end
+  
   resources :bills do
     member do
       put "upvote", to: "bills#upvote"

@@ -23,13 +23,11 @@
 
 <p>
   <%= link_to upvote_bill_path(@bill), method: :put do %>
-          Upvote
+          Support
           <%= @bill.get_upvotes.size %>
         <% end %>
-        </p>
-
-        <p><%= link_to downvote_bill_path(@bill), method: :put do %>
-          Downvote
+        | <%= link_to downvote_bill_path(@bill), method: :put do %>
+          Oppose
           <%= @bill.get_downvotes.size %>
         <% end %>
         </p>
