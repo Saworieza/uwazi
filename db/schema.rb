@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517155517) do
+ActiveRecord::Schema.define(version: 20160519225206) do
 
   create_table "bills", force: :cascade do |t|
     t.string   "title"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160517155517) do
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
     t.integer  "politician_id"
+    t.integer  "user_id"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|

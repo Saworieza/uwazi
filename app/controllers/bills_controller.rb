@@ -1,6 +1,8 @@
 class BillsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_bill, only: [:show, :edit, :update, :destroy]
+  #ensure only owner edits or deletes
+  before_action :owned_bill, only: [:edit, :update, :destroy]
 
   # GET /bills
   # GET /bills.json
@@ -20,11 +22,27 @@ class BillsController < ApplicationController
 
   # GET /bills/new
   def new
-    @bill = Bill.new
+    @bill = current_user.bills.build
+    #@bill = Bill.new
   end
 
   # GET /bills/1/edit
   def edit
+     @bill = current_user.bills.build(bill_params)
+     
+     if @bill.save
+      flash[:success] = "Bill has been created!"
+      redirect_to posts_path
+     else
+      flash[:alert] = "Your bill couldn't be created!  Please check the form."
+      render :new
+     end
+     #@bill = Bill.find(params[:id])
+     #redirect_to root_path, notice: 'Thou Shalt Nought duuu dat :(' unless current_user.id == @bill.user_id
+      
+    #unless current_user == @bill.user
+      #redirect_to(@bill, notice: "You cannot edit this prayer") and return
+    #end
   end
   
   def upvote
@@ -42,7 +60,8 @@ class BillsController < ApplicationController
   # POST /bills
   # POST /bills.json
   def create
-    @bill = Bill.new(bill_params)
+    @bill = current_user.bills.build(bill_params)
+    #@bill = Bill.new(bill_params)
      @bill.document = params[:bill][:document]
     
     respond_to do |format|
@@ -94,4 +113,11 @@ class BillsController < ApplicationController
     def bill_params
       params.require(:bill).permit(:document, :title, :summary, :date, :politician_id)
     end
+    
+    def owned_bill  
+      unless current_user == @bill.user
+        flash[:alert] = "That bill doesn't belong to you!"
+        redirect_to bills_path
+      end
+    end  
 end

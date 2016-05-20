@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 <p>
+  <!-- this is temporary, eventually only admin creates bills-->
+  Bill added by<%= @bill.user.username %>
+</p>
+<p>
   <strong></strong>
   <%= image_tag @bill.document.url(:thumbnail) %>
 </p>
@@ -42,10 +46,12 @@
         </p>
         
 
-
-<%= link_to 'Edit', edit_bill_path(@bill) %> |
-<%= link_to 'Back', bills_path %> |
-<td><%= link_to 'Destroy', @bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% if @bill.user.id == current_user.id %>
+  <%= link_to 'Edit', edit_bill_path(@bill) %> |
+  <%= link_to 'Destroy', @bill, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% else %>
+ <%= link_to 'Back', bills_path %> 
+<% end %>
 
 <% if user_signed_in? %>
 <%= render partial: "comments/template", locals: {commentable: @bill, new_comment: @comment} %>  
