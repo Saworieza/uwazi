@@ -33,7 +33,7 @@
   <%= @bill.summary.html_safe %>
 </p>
 
-
+<% if user_signed_in? %>
 <p>
   <%= link_to upvote_bill_path(@bill), method: :put do %>
           Support
@@ -46,13 +46,14 @@
         </p>
         
 
+
 <% if @bill.user.id == current_user.id %>
   <%= link_to 'Edit', edit_bill_path(@bill) %> |
   <%= link_to 'Destroy', @bill, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% else %>
  <%= link_to 'Back', bills_path %> 
 <% end %>
-
-<% if user_signed_in? %>
-<%= render partial: "comments/template", locals: {commentable: @bill, new_comment: @comment} %>  
 <% end %>
+
+
+<%= render partial: "comments/template", locals: {commentable: @bill, new_comment: @comment} %>  

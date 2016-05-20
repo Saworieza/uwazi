@@ -14,8 +14,7 @@ class BillsController < ApplicationController
   # GET /bills/1.json
   def show
     @bill = Bill.find(params[:id])
-    #@comment = Bill.comments.find(params[:id])
-    @new_comment = Comment.build_from(@bill, current_user.id, "")
+    @new_comment = Comment.new
     
  
   end
@@ -23,7 +22,6 @@ class BillsController < ApplicationController
   # GET /bills/new
   def new
     @bill = current_user.bills.build
-    #@bill = Bill.new
   end
 
   # GET /bills/1/edit
@@ -104,6 +102,7 @@ class BillsController < ApplicationController
   end
 
   private
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_bill
       @bill = Bill.find(params[:id])

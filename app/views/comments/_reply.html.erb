@@ -1,9 +1,6 @@
 <% comments.each do |comment| %>  
   <div class="comments-show">
     <div class="comment">
-      
-      
-      
       <div class="col-xs-12">
         <div class="col-xs-2">
           <div class="col-xs-5">
@@ -15,40 +12,38 @@
           </div>
         </div>
         <div class="col-xs-10">
-          <p><%= comment.body %><br></p>
+          <% if user_signed_in? %>
+            <p><%= comment.body %><br></p>
+            <p>
+            <%= link_to upvote_comment_path(comment), method: :put do %>
+              Agree
+              <%= comment.get_upvotes.size %>
+            <% end %>
+          | <%= link_to downvote_comment_path(comment), method: :put do %>
+              Disagree
+              <%= comment.get_downvotes.size %>
+            <% end %>
+            </p>
         
-      
-      
-      <p>
-      <%= link_to upvote_comment_path(comment), method: :put do %>
-          Agree
-          <%= comment.get_upvotes.size %>
-        <% end %>
-        | <%= link_to downvote_comment_path(comment), method: :put do %>
-          Disagree
-          <%= comment.get_downvotes.size %>
-        <% end %>
-        </p>
-        
-      
-      
-      <div class="comment-nav"><p><a href="#" class="comment-reply">reply</a></p></div>
-      <div class="reply-form">
-        <%= form_for @new_comment do |f| %>
-          <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
-          <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
-          <%= f.hidden_field :comment_id, value: comment.id %>
-          <div class="field form-group">
-            <%= f.text_area :body, class: 'form-control' %>
-          </div>
-          <div class="field form-group">
-            <%= submit_tag "Post Reply", class: 'btn btn-primary' %>
-          </div>
-        <% end %>
+            <div class="comment-nav"><p><a href="#" class="comment-reply">reply</a></p></div>
+              <div class="reply-form">
+                <%= form_for @new_comment do |f| %>
+                  <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
+                    <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
+                    <%= f.hidden_field :comment_id, value: comment.id %>
+                    <div class="field form-group">
+                      <%= f.text_area :body, class: 'form-control' %>
+                    </div>
+                    <div class="field form-group">
+                      <%= submit_tag "Post Reply", class: 'btn btn-primary' %>
+                    </div>
+                  <% end %>
+              </div>
+            </div>
+            <% end %>
+            <%= render partial: "comments/reply", locals: {comments: comment.children} %>
+          
+        </div>
       </div>
     </div>
-    <%= render partial: "comments/reply", locals: {comments: comment.children} %>
-  </div>
 <% end %> 
-</div>
-</div>
