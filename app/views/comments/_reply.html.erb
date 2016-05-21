@@ -13,6 +13,7 @@
         </div>
         <div class="col-xs-10">
           <% if user_signed_in? %>
+            <p><%= humanize_boolean(comment.approved) %></p>
             <p><%= comment.body %><br></p>
             <p>
             <%= link_to upvote_comment_path(comment), method: :put do %>
