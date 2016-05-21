@@ -26,15 +26,12 @@ class BillsController < ApplicationController
 
   # GET /bills/1/edit
   def edit
-     @bill = current_user.bills.build(bill_params)
+    @bill = Bill.find(params[:id])
+    
+    
+    
+    # @bill = current_user.bills.build(bill_params)
      
-     if @bill.save
-      flash[:success] = "Bill has been created!"
-      redirect_to posts_path
-     else
-      flash[:alert] = "Your bill couldn't be created!  Please check the form."
-      render :new
-     end
      #@bill = Bill.find(params[:id])
      #redirect_to root_path, notice: 'Thou Shalt Nought duuu dat :(' unless current_user.id == @bill.user_id
       

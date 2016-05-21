@@ -56,4 +56,10 @@
 <% end %>
 
 
-<%= render partial: "comments/template", locals: {commentable: @bill, new_comment: @comment} %>  
+<%= render partial: "comments/template", locals: {commentable: @bill, new_comment: @comment} %> 
+
+
+
+<iframe src="http://docs.google.com/viewer?url=<%= u @bill.document.url %>&embedded=true" width="600" height="780" style="border: none;"></iframe>
+
+<a href="https://docs.google.com/gview?url={@bill.document.url}&embedded=true">Your Pdf Viewer</a> 
