@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 
   def create
     commentable = commentable_type.constantize.find(commentable_id)
-    @comment = Comment.build_from(commentable, current_user.id, body)
+    @comment = Comment.build_from(commentable, current_user.id, body, approved)
 
     respond_to do |format|
       if @comment.save
@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :commentable_id, :commentable_type, :comment_id)
+    params.require(:comment).permit(:body, :commentable_id, :commentable_type, :comment_id, :approved)
   end
 
   def commentable_type
