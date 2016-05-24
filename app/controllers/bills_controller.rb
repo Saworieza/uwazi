@@ -15,8 +15,6 @@ class BillsController < ApplicationController
   def show
     @bill = Bill.find(params[:id])
     @new_comment = Comment.new
-    
- 
   end
 
   # GET /bills/new
