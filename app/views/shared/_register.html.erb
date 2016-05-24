@@ -34,9 +34,7 @@
             <div class="sminputs">
               <div class="input string optional">
                 <label class="string optional" for="user-pw">Password *</label>
-                <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em>
-                <% end %><br />
+                
                 <%= f.password_field :password, autocomplete: "off", class: "string optional", id: "user-pw", placeholder: "Password" %>
                 <!-- <input class="string optional" maxlength="255" id="user-pw" placeholder="Password" type="text" size="50" /> -->
               </div>
