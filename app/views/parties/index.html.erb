@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= link_to 'New Party', new_party_path %>
 <h1>Listing Parties</h1>
 
 <table>
@@ -28,4 +28,14 @@
 
 <br>
 
-<%= link_to 'New Party', new_party_path %>
+
+<div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <%unless user_signed_in? %>
+            <div class="modal-content">
+               <%= render 'shared/register'%> 
+            </div>
+          <% end %>
+        </div>
+      </div>

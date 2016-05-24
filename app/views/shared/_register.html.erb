@@ -13,9 +13,10 @@
         <div class="logmod__heading">
           <span class="logmod__heading-subtitle">Enter your personal details <strong>to create an acount</strong></span>
         </div>
-        <%= form_for(resource, :class => "simform", as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
+        
         <div class="logmod__form">
+          <%= form_for(resource, :class => "simform", as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
           <!-- <form accept-charset="utf-8" action="#" class="simform"> -->
             <div class="sminputs">
               <div class="input full">

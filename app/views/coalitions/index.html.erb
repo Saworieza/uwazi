@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= link_to 'New Coalition', new_coalition_path %>
 <h1>Listing Coalitions</h1>
 
 <table>
@@ -26,4 +26,15 @@
 
 <br>
 
-<%= link_to 'New Coalition', new_coalition_path %>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <%unless user_signed_in? %>
+            <div class="modal-content">
+               <%= render 'shared/register'%> 
+            </div>
+          <% end %>
+        </div>
+      </div>

@@ -36,3 +36,13 @@
 <br>
 
 
+<div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <%unless user_signed_in? %>
+            <div class="modal-content">
+               <%= render 'shared/register'%> 
+            </div>
+          <% end %>
+        </div>
+      </div>
