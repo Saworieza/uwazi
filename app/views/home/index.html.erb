@@ -16,7 +16,7 @@
 </div>
 
 <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -25,7 +25,7 @@
     <!-- Modal content-->
     <%unless user_signed_in? %>
     <div class="modal-content">
-         <%= render 'shared/login'%> 
+         <%= render 'shared/register'%> 
     </div>
     <% end %>
   </div>

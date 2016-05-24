@@ -15,6 +15,8 @@ gem 'cancancan'
 gem 'jquery-ui-rails'
 gem 'adminlte2-rails'
 gem 'prawn'
+gem 'bourbon'
+
 
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts_as_commentable_with_threading'  
