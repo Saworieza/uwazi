@@ -7,7 +7,12 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @county.description.html_safe %>
+  <%= raw(@county.description) %>
+</p>
+<p>
+  <% @county.constituencies.each do |constituency| %>
+      <div><%= constituency.name %></div>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_county_path(@county) %> |
