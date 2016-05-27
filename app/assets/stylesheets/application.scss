@@ -5,11 +5,19 @@
 @import "bourbon";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 body{
     margin-top:80px;
 }
-
+h1, h2, h3, h4, h5, h6, a {
+    font-family: 'Oswald', sans-serif;
+}
+ul, label {
+    margin: 0;
+    padding: 0;
+}
 .comments-header {
   border-bottom: 1px dotted gray;
   margin-bottom: 10px;
@@ -45,27 +53,73 @@ body{
 ul li{
     list-style-type: none;
 }
-.content{
-  clear:right;
-  margin-bottom: 20px;
-}
+
+
 footer{
   clear: both;
   position: relative;
   bottom: -1px;
 }
-#footer{
-  margin-top: 25px;
-  border-top: 1px solid #DDD;
-  background: #FAFAFA;
-  font-size: 14px;
-  padding: 24px 0 0;
+.footer{
+  padding: 4em 0 3em;
+  background-color: rgb(51, 51, 51);
+  margin-top:5em;
+}
+.footer-grids h4 a {
+    color: #D28F3B;
+    font-size: 2.3em;
+    text-decoration: none;
+}
+.footer h3 {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0.4em 0 1em;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+.footer h4 {
+    margin: 0 0 .5em;
+}
+.footer-grids h4 a span {
+    font-size: 14px;
+    color: #999;
+}
+.footer-grids p {
+    color: #868686;
+    font-size: 14px;
+    line-height: 1.8em;
+    margin: 0;
+}
+.footer-grids ul li {
+    margin-bottom: 1em;
+    color: #868686;
+    font-size: 14px;
+    list-style-type: none;
+}
+.footer-grids ul li a {
+    color: #868686;
+    text-decoration: none;
+}
+.social-icons {
+    padding: 1em 0 0 !important;
+}
+.social-icons li {
+    display: inline-block;
+}
+i {
+    font-size: 20px !important;
+    margin-left: .5em;
+    border: 2px solid #D28F3B;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    padding-top: 20%;
+    padding-left: 22%;
+    color: #D28F3B;
 }
 
 /* Home page styling*/
-h1, h2, h3, h4, h5, h6, a {
-    font-family: 'Oswald', sans-serif;
-}
+
 .banner-bottom{
     padding: 5em 0;
 }
@@ -98,6 +152,7 @@ h1, h2, h3, h4, h5, h6, a {
 }
 .img-responsive {
     width: 350px;
+    height:233px;
     border-left: thin solid #ABA295;
     border-right: thin solid #ABA295;
     border-top: thin solid #ABA295;
