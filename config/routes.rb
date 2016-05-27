@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :constituencies
   resources :contests
   resources :politicians
   mount Ckeditor::Engine => '/ckeditor'
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   end
   
   get 'about' => 'static#about', as: :about
+  get 'privacy' => 'static#privacyandlegal', as: :privacy
   devise_for :users
   root 'home#index'
 end

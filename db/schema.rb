@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521083253) do
+ActiveRecord::Schema.define(version: 20160527054123) do
 
   create_table "bills", force: :cascade do |t|
     t.string   "title"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160521083253) do
     t.string   "abbrev"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -68,6 +69,14 @@ ActiveRecord::Schema.define(version: 20160521083253) do
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "constituencies", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "county_id"
+  end
 
   create_table "contests", force: :cascade do |t|
     t.string   "name"

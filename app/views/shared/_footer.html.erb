@@ -1,0 +1,42 @@
+<div class="container">
+	<footer id="footer">
+		<div class="row">
+			<nav class="col-sm-3 col-md-2">
+				<h4><span>site</span> Menu</h4>
+					<ul>
+						<li><%= link_to 'Home', root_path %></li>
+						<li><%= link_to 'About Uwazi', about_path %></li>
+						<li><%= link_to 'Privacy & Legal', privacy_path %></li>
+						<li>
+						<% if user_signed_in? %>
+          		Signed in as <%= link_to (current_user.username), edit_user_registration_path %></li>
+          		<li><%= link_to('Sign out', destroy_user_session_path, method: :delete) %></li>
+        		<% else %>
+          		<li><a href="#", data-toggle="modal" data-target="#myModal">Sign in </a></li>
+        		<% end %>						
+					</ul>
+				</nav>
+
+				<section class="col-sm-2 social">
+					<h4><span>Follow</span> Uwazi Kenya</h4>
+					<ul>
+						<li><a href="https://www.facebook.com/pages/uwazi/312186525430"><i class="fa fa-facebook fa-fw"></i><span>Facebook</span></a></li>
+						<li><a href="http://twitter.com/uwazi"><i class="fa fa-twitter fa-fw"></i><span>Twitter</span></a></li>
+						<li><a href="https://medium.com/uwazi-insider"><i class="fa fa-medium fa-fw"></i><span>Medium</span></a></li>
+						<li><a href="https://github.com/uwazi/uwazi.or.ke-web/commits/master"><i class="fa fa-github fa-fw"></i><span>Code</span></a></li>
+					</ul>
+				</section>
+
+				<section class="col-md-offset-1 col-sm-6">
+					<p>Launched in 2016, Uwazi helps everyone learn about the activities of the Kenyan Parliament. This is a project of <a href="http://www.uwazi.or.ke/about/">UwaziKenya</a>. uwazi.or.ke is not a government website.</p>
+
+					<p><a href="https://www.uwazi.or.ke/about">About the Site</a> | <a href="https://www.uwazi.or.ke/contact">Contact Us</a></p>
+
+					<p>You are encouraged to reuse any material on this site. uwazi supports other Parliamentary-tracking websites through our <a href="https://www.uwazi.or.ke/developers">open data</a>.</p>
+					
+					
+				</section>
+
+			</div>
+			<p></p>
+		</div></footer>

@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<p>Created by <%= @coalition.user.username %></p>
 <p>
   <strong>Name:</strong>
   <%= @coalition.name %>
@@ -10,5 +10,9 @@
   <%= @coalition.abbrev %>
 </p>
 
+<% if @coalition.user.id == current_user.id %>
 <%= link_to 'Edit', edit_coalition_path(@coalition) %> |
+<%= link_to 'Delete', @coalition, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% else %>
 <%= link_to 'Back', coalitions_path %>
+<% end %>

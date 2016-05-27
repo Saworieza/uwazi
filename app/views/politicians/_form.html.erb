@@ -34,13 +34,21 @@
     <%= f.label :web %><br>
     <%= f.text_field :web %>
   </div>
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :Contest %><br>
     <%= f.text_field :contest_type %>
-  </div>
+  </div> -->
   <div class="field">
     <%= f.label :Position %>
     <%= f.collection_select :contest_id, Contest.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Party %>
+    <%= f.collection_select :party_id, Party.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :County %>
+    <%= f.collection_select :county_id, County.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :description %><br>

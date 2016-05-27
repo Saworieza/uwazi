@@ -6,11 +6,13 @@ class PartiesController < ApplicationController
   # GET /parties.json
   def index
     @parties = Party.all
+    @politicians = Politician.all
   end
 
   # GET /parties/1
   # GET /parties/1.json
   def show
+    @politicians = Politician.all
   end
 
   # GET /parties/new

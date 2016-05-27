@@ -23,7 +23,16 @@
 </p>
 <p>
   <strong>Contest:</strong>
-  <%= @politician.contest_type %>
+  <%= @politician.contest.name%>
+</p>
+<p>
+  <strong>Party:</strong>
+  <%= @politician.party.name%>
+</p>
+
+<p>
+  <strong>County:</strong>
+  <%= @politician.county.name%>
 </p>
 
 <p>

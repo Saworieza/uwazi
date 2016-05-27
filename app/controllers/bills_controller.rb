@@ -105,12 +105,12 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:document, :title, :summary, :date, :politician_id)
+      params.require(:bill).permit(:document, :title, :summary, :date, :politician_id, :user_id)
     end
     
     def owned_bill  
       unless current_user == @bill.user
-        flash[:alert] = "That bill doesn't belong to you!"
+        flash[:alert] = "That Bill doesn't belong to you!"
         redirect_to bills_path
       end
     end  

@@ -16,7 +16,7 @@ end
 
 CSV.foreach("#{Rails.root}/lib/data/county.csv") do |row|
   p row
-  County.create!(:id => row[0], :name => row[1],:code=>row[2])
+  County.create!(:id => row[0], :name => row[1])
 end
 
 =begin

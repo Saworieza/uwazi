@@ -2,31 +2,24 @@
 <%= link_to 'New Bill', new_bill_path %>
 <h1>Listing Bills</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Summary</th>
-      <th>Date Introduced</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+
+<div class="row">
+  <div class="content">
     <% @bills.each do |bill| %>
-      <tr style="border-bottom:thin solid grey;">
-        <td><%= link_to (bill.title.html_safe), bill %></td>
-        <td><%= truncate(bill.summary, :length => 150, separator: ' ', :escape => false) %></td>
-        <td><%= bill.date %></td>
-        <td><%#= pluralize(bill.comments.size, "Comment") %></td>
-        <td><p><%= bill.get_upvotes.size %> Support</p></td>
-        <td><p><%= bill.get_downvotes.size %>Oppose</p></td>
-      </tr>
-    <% end %>
+      <div class="" style="border-bottom:thin solid grey;">
+        <div class="">
+          <%= link_to (bill.title.html_safe), bill %>
+          <span class="pull-right"><%= bill.date %></span>
+        </div>
+        <div class="">
+          <%= truncate(bill.summary, :length => 250, separator: ' ', :escape => false) %><br>
+        </div>
         
-  </tbody>
-</table>
-
-<br>
-
-
+        <%= bill.get_upvotes.size %> Support
+        <%= bill.get_downvotes.size %>Oppose
+      </div>
+    <% end %>
+  </div>
+</div>
+<p> Continous scrolling no pagination</p>

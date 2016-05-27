@@ -1,11 +1,12 @@
 class CoalitionsController < ApplicationController
   before_action :set_coalition, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :owned_coalition, only: [:edit, :update, :destroy]
 
   # GET /coalitions
   # GET /coalitions.json
   def index
-    @coalitions = Coalition.all
+    @coalitions = Coalition.order('created_at DESC')
   end
 
   # GET /coalitions/1
@@ -15,7 +16,7 @@ class CoalitionsController < ApplicationController
 
   # GET /coalitions/new
   def new
-    @coalition = Coalition.new
+    @coalition = current_user.coalitions.build
   end
 
   # GET /coalitions/1/edit
@@ -25,7 +26,7 @@ class CoalitionsController < ApplicationController
   # POST /coalitions
   # POST /coalitions.json
   def create
-    @coalition = Coalition.new(coalition_params)
+    @coalition = current_user.coalitions.build(coalition_params)
 
     respond_to do |format|
       if @coalition.save
@@ -70,6 +71,13 @@ class CoalitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coalition_params
-      params.require(:coalition).permit(:name, :abbrev)
+      params.require(:coalition).permit(:name, :abbrev, :user_id)
     end
+
+    def owned_coalition  
+      unless current_user == @coalition.user
+        flash[:alert] = "This one doesn't belong to you!"
+        redirect_to coalitions_path
+      end
+    end  
 end
