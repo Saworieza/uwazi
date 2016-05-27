@@ -1,66 +1,65 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <%= image_tag @politician.avatar.url(:thumb), class: "avatar-thumb" %>
-</p>
-<p>
-  <strong>Full name:</strong>
-  <%= @politician.full_name %>
-</p>
+<section id="about" class="scroll-section root-sec grey lighten-5 about-wrap">
+      <div class="container">
+        <div class="row">
+          <div class="clearfix about-inner">
+            <div class="col-sm-6 col-md-4">
+              <h3 class="about-subtitle"><%= @politician.full_name %></h3>
+              <div style="visibility: visible; animation-name: fadeIn;" class="person-img wow fadeIn animated animated">
+                <%= image_tag @politician.avatar.url(:medium), class: "z-depth-1" %>
+                <!--<img class="z-depth-1" src="images/person.jpg" alt="">-->
+              </div>
+              <div class="about-social">
+                <ul>
+                  <li>
+                    <a href="#" class="btn-floating waves-effect waves-light white"><i class="fa fa-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a href="#" class="btn-floating waves-effect waves-light white"><i class="fa fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a href="<%= @politician.email %>" class="btn-floating waves-effect waves-light white"><i class="fa fa-envelope"></i></a>
+                  </li>
+                  <li>
+                     <a href="<%= @politician.web %>" class="btn-floating waves-effect waves-light white" target="_blank"><i class="fa fa-chain"></i></a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <%= link_to 'Edit', edit_politician_path(@politician) %> |
+                <%= link_to 'Back', politicians_path %>
+              </div>
+            </div>
+            <!-- about me image -->
 
-<p>
-  <strong>Born:</strong>
-  <%= @politician.born %>
-</p>
+            <div class="col-sm-6 col-md-4">
+              <div class="person-info">
+                <h3 class="about-subtitle">Personal Information</h3>
+                <h5><span>Born :</span> <%= @politician.born %></h5>
+                <h5><span>Phone :</span> <%= @politician.telephone %></h5>
+                <h5><span>Position :</span> <%= @politician.contest.name%></h5>
+                <h5><span>County :</span> <%= @politician.county.name%></h5>
+                <h5><span>Party :</span> <%= @politician.party.name%></h5>
+                <h5><span>Primary &amp; Secondary :</span> <%= @politician.primary_secondary_school %></h5>
+                <h5><span>Undergraduate :</span> <%= @politician.undergraduate_school %></h5>
+                <h5><span>Graduate School :</span> <%= @politician.graduate_school %></h5>
+                
+              </div>
 
-<p>
-  <strong>Telephone:</strong>
-  <%= @politician.telephone %>
-</p>
+              
+            </div>
+            <!-- about me info -->
+            
+            <div class="col-sm-12 col-md-4">
+              <div class="person-about">
+                <h3 class="about-subtitle">My Story</h3>
+                <%= raw(@politician.description) %>
+                <!--<a class="waves-effect waves-light btn-large brand-bg white-text"><i class="mdi-content-archive left"></i> Download Resume</a>-->
+              </div>
+            </div>
 
-<p>
-  <strong>Web:</strong>
-  <%= @politician.web %>
-</p>
-<p>
-  <strong>Contest:</strong>
-  <%= @politician.contest.name%>
-</p>
-<p>
-  <strong>Party:</strong>
-  <%= @politician.party.name%>
-</p>
+          </div>
+        </div>
+      </div>
+      <!-- .container end -->
+    </section>
 
-<p>
-  <strong>County:</strong>
-  <%= @politician.county.name%>
-</p>
-
-<p>
-  <strong>Primary and Secondary:</strong>
-  <%= @politician.primary_secondary_school %>
-</p>
-<p>
-  <strong>Under Grad:</strong>
-  <%= @politician.undergraduate_school %>
-</p>
-<p>
-  <strong>Grad School:</strong>
-  <%= @politician.graduate_school %>
-</p>
-<p>
-  <strong>Prev Position:</strong>
-  <%= @politician.previous_position %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @politician.description %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @politician.email %>
-</p>
-
-<%= link_to 'Edit', edit_politician_path(@politician) %> |
-<%= link_to 'Back', politicians_path %>
