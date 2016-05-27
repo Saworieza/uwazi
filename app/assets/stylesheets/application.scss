@@ -7,7 +7,7 @@
 @import "bootstrap";
 
 body{
-    margin-top:50px;
+    margin-top:80px;
 }
 
 .comments-header {
@@ -61,6 +61,72 @@ footer{
   font-size: 14px;
   padding: 24px 0 0;
 }
+
+/* Home page styling*/
+h1, h2, h3, h4, h5, h6, a {
+    font-family: 'Oswald', sans-serif;
+}
+.banner-bottom{
+    padding: 5em 0;
+}
+.banner-bottom h3, .events h3, h3.title, .contact-main h3 {
+    text-align: center;
+    color: #999;
+    font-size: 2em;
+    margin: 0;
+    position: relative;
+}
+.banner-bottom h3::before, h3.title::before, .contact-main h3::before {
+    background:  image_url('2.png') no-repeat 0px 0px;
+    display: block;
+    height: 31px;
+    width: 100px;
+    position: absolute;
+    top: 105%;
+    left: 41%;
+    content: '';
+}
+.banner-bottom h3::after, h3.title::after, .contact-main h3::after {
+    background: url(2.png) no-repeat 0px 0px;
+    display: block;
+    height: 31px;
+    width: 100px;
+    position: absolute;
+    top: 105%;
+    right: 41%;
+    content: '';
+}
+.img-responsive {
+    width: 350px;
+    border-left: thin solid #ABA295;
+    border-right: thin solid #ABA295;
+    border-top: thin solid #ABA295;
+}
+.services-grd {
+    padding: 2em 1em;
+    text-align: center;
+    background-color: #ABA295;
+    box-shadow: -3px -4px 6px #F1F1F1;
+}
+.services-grd h4 {
+    text-transform: capitalize;
+    font-size: 1.1em;
+    color: #F5D8B3;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+}
+.services-grd p {
+    margin: 1em 0;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.8em;
+}
+.services-grd {
+    text-align: center;
+}
+/* home gape styling end*/
 /* Registration or new session from anywhere*/
 
 /* /Registration from anywhere */

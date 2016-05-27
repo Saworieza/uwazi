@@ -1,19 +1,42 @@
-<div class="container">
-    <div class="row">
-        <div class="col-lg-4">
-            <img src="">
-            <%= link_to 'Members of Senate', persons_path %>            
-        </div>
-        <div class="col-lg-4">
-            <img src="">
-            <%= link_to 'Bills and Resolutions', bills_path %>            
-        </div>
-        <div class="col-lg-4">
-            <img src="">
-            <%= link_to 'Commitees', persons_path %>            
-        </div>
-    </div>
+<div class="banner-bottom">
+    <h3 style="color:rgb(0,0,0);">Welcome <span style="color: red;"> To </span><span style="color: green;">Uwazi</span></h3>
 </div>
+<!-- services -->
+			<div class="services">
+				<div class="col-md-4 services-grid">
+					<!--<img src="images/track.png" alt=" " class="img-responsive" />-->
+					<%= image_tag(("parliament2.jpg"), class: "img-responsive") %>
+					<div class="services-grd services-grd1">
+						<h4>Track</h4>
+						<p>Track your representatives in Parliament with live vote alerts and official updates .</p>
+						<div class="more">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 services-grid">
+					<!--<img src="images/engage.png" alt=" " class="img-responsive" />-->
+					<%= image_tag(("engage.png"), class: "img-responsive") %>
+					<div class="services-grd services-grd2">
+						<h4>Engage</h4>
+						<p>Tap into national politics and policy through text, news, photos, and polls.</p>
+						<div class="more">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 services-grid">
+					<!--<img src="images/parliament2.jpg" alt=" " class="img-responsive" />-->
+					<%= image_tag(("parliament2.jpg"), class: "img-responsive") %>
+					<div class="services-grd services-grd3">
+						<h4>Influence</h4>
+						<p>Vote alongside Members of Parliament to set your own agenda and influence others.</p>
+						<div class="more">
+							<!--<a href="single.html"></a>-->
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+<!-- //services -->
 
 <!-- Trigger the modal with a button -->
 <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
