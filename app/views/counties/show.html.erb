@@ -15,6 +15,13 @@
   <% end %>
 </p>
 
+<p>
+  <% @county.politicians.each do |politician| %>
+      <div><%= image_tag politician.avatar.url(:thumb), class: "avatar-thumb" %></div>
+      <div><%= politician.full_name %></div>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_county_path(@county) %> |
 <%= link_to 'Back', counties_path %> |
 <%= link_to 'Destroy', @county, method: :delete, data: { confirm: 'Are you sure?' } %>

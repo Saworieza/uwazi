@@ -6,4 +6,8 @@ class County < ActiveRecord::Base
 	def constituencies
     	Constituency.where(:county_id => self.id).to_a 
   	end
+  	
+  	def politicians
+    	Politician.where(:county_id => self.id).to_a 
+  	end
 end
