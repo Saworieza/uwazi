@@ -4,23 +4,41 @@
   <strong>Name:</strong>
   <%= @county.name %>
 </p>
+<p>
+      <strong>Description:</strong>
+      <%= raw(@county.description) %>
+    </p>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#home">Politicians</a></li>
+  <li><a data-toggle="tab" href="#menu1">Constituencies</a></li>
+</ul>
 
-<p>
-  <strong>Description:</strong>
-  <%= raw(@county.description) %>
-</p>
-<p>
-  <% @county.constituencies.each do |constituency| %>
-      <div><%= constituency.name %></div>
-  <% end %>
-</p>
-
-<p>
-  <% @county.politicians.each do |politician| %>
-      <div><%= image_tag politician.avatar.url(:thumb), class: "avatar-thumb" %></div>
-      <div><%= politician.full_name %></div>
-  <% end %>
-</p>
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <h3>Politicians</h3>
+    <p>Politicians from this county</p>
+    <div class="row">
+      <% @county.politicians.each do |politician| %>
+        <div class="col-lg-3">
+          <div><%= image_tag politician.avatar.url(:thumb), class: "avatar-thumb" %></div>
+          <div>Name <%= link_to (politician.full_name), politician %></div>
+          <div>Position <%= politician.contest.name %></div>
+          <div>Party <%= politician.party.name %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div id="menu1" class="tab-pane fade">
+    <h3>Constituencies</h3>
+    
+    <p>Constituencies in this county</p>
+    <p>
+      <% @county.constituencies.each do |constituency| %>
+          <div><%= link_to (constituency.name), constituency %></div>
+      <% end %>
+    </p>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_county_path(@county) %> |
 <%= link_to 'Back', counties_path %> |
