@@ -9,4 +9,8 @@ class Politician < ActiveRecord::Base
     belongs_to :party
     
     belongs_to :contest 
+    
+    def bills
+    	Bill.where(:politician_id => self.id).to_a 
+    end
 end

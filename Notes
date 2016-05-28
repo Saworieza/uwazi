@@ -1,5 +1,8 @@
 Add an option to agree or diagree so as to show where a comment leans and also to enable filtering based on agreeing or disagreeing people
 
+votes for comments in _form
+<%= f.select :approved, [['Agree', true], ['Disagree', false]]%>
+
 
 The top sites built with Ruby on Rails that will inspire you are -
 Twitter

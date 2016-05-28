@@ -62,4 +62,13 @@
       </div>
       <!-- .container end -->
     </section>
+    <div>
+      <p class="capitalize">Bills By <%= @politician.full_name %></p>
+      <p>
+        <% @politician.bills.each do |bill| %>
+          <div><%= link_to (bill.title), bill %></div>
+        <% end %>
+      </p>
+    </div>
+    
 

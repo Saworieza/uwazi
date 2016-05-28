@@ -1,14 +1,10 @@
-<%= form_for @new_comment, remote: true do |f| %>  
+<%= form_for @new_comment do |f| %>  
   <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
   <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
   <div class="field form-group">
-    <%= f.label :Agree%>
-    <p>For now just let both be here. if you check box then you have to agree</p>
-    <%= f.check_box :approved %>
-    <%= f.select :approved, [['Agree', true], ['Disagree', false]]%>
     <%= f.text_area :body, class: 'form-control' %>
   </div>
   <div class="field form-group">
     <%= submit_tag "Post comment", class: 'btn btn-primary' %>
   </div>
-<% end %>  
+<% end %>

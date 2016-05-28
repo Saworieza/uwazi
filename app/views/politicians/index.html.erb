@@ -1,28 +1,29 @@
 <p id="notice"><%= notice %></p>
 <%= link_to 'New Politician', new_politician_path %>
-<h1>Listing Politicians</h1>
+<h4>Listing Politicians</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Full name</th>
-      <th>County</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @politicians.each do |politician| %>
-      <tr>
-        <td><%= image_tag politician.avatar.url(:thumb), class: "avatar-thumb" %></td>
-        <td><%= link_to (politician.full_name), politician %></td>
-        <td><%= politician.county.name %></td>
-      </tr>
+<div class="container" style="margin-top:20px;">
+  <div class="row">
+     <% @politicians.each do |politician| %>
+    <div class="col-lg-10">
+      <div class="media">
+        <a href="#" class="pull-left"> 
+          <%= image_tag politician.avatar.url(:thumb), class: "avatar-thumb media-object img-thumbnail" %>
+          <!--<img alt="64x64" data-src="holder.js/64x64" class="media-object img-thumbnail" style="width: 64px; height: 64px;" src="http://placehold.it/64x64">      -->
+        </a>
+        <div class="media-body">
+          <h3 class="media-heading">
+            <strong><%= link_to (politician.full_name), politician %></strong>
+          </h3>
+          <p class=""><%= link_to (politician.contest.name), contests_path %> for <%= link_to (politician.county.name), counties_path %>.</p>
+          <p class="capitalize">Member of <%= link_to (politician.party.name), parties_path %>.</p>
+        </div>
+      </div>     
+    
+    </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
+  </div>
+</div>
 
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -35,3 +36,5 @@
           <% end %>
         </div>
       </div>
+      
+      

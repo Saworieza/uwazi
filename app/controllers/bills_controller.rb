@@ -14,7 +14,7 @@ class BillsController < ApplicationController
   # GET /bills/1.json
   def show
     @bill = Bill.find(params[:id])
-    @new_comment = Comment.new
+    @new_comment = Comment.build_from(@bill, 1, "")
   end
 
   # GET /bills/new
@@ -25,17 +25,6 @@ class BillsController < ApplicationController
   # GET /bills/1/edit
   def edit
     @bill = Bill.find(params[:id])
-    
-    
-    
-    # @bill = current_user.bills.build(bill_params)
-     
-     #@bill = Bill.find(params[:id])
-     #redirect_to root_path, notice: 'Thou Shalt Nought duuu dat :(' unless current_user.id == @bill.user_id
-      
-    #unless current_user == @bill.user
-      #redirect_to(@bill, notice: "You cannot edit this prayer") and return
-    #end
   end
   
   def upvote

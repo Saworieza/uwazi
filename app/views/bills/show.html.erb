@@ -1,87 +1,101 @@
-<p id="notice"><%= notice %></p>
-<!-- <p>
-   this is temporary, eventually only admin creates bills
-  Bill added by<%= @bill.user.username %>
-</p>
- -->
-<p>
-  <strong>Title:</strong>
-  <strong><%= @bill.title.html_safe %></strong>
-</p>
-<p>
-  <strong>Introduced:</strong>
-  <%= @bill.date %>
-</p>
-<div class="row">
-  <div class="col-lg-12">
-    <div class="col-lg-1">
-      <strong>Sponsor</strong><br>
-         
-        <%= image_tag @bill.politician.avatar.url(:thumb), class: "avatar-thumb"%>
-      </div>
-      <div class="col-lg-8">
-      <p></p>
-        <%= link_to @bill.politician.full_name %><br>
-        <%= @bill.politician.contest.name %> for
-        <%= link_to @bill.politician.county.name %><br>
-        Party: <%= @bill.politician.party.name%>
-      </div>
-    </div>
+
+  <div class="content">
+    <p id="notice"><%= notice %></p>
   </div>
-</div>
-<p>
+  <p class="bill-title">
+    <strong>Title:</strong>
+    <strong><%= @bill.title.html_safe %></strong>
+  </p>
+  <p>
+    <strong>Introduced:</strong>
+    <%= @bill.date.strftime(" %d %b, %Y ") %>
+  </p>
   <div class="row">
-    <div class="col-lg-2">
-      <strong>Text</strong><br>
-      <%= image_tag @bill.document.url(:thumbnail) %>
-    </div>
     <div class="col-lg-8">
-      <p><strong><a href="#", data-toggle="modal" data-target="#myBill">Read Text </a></strong></p><br>
-      <p> Last Updated at: <%= @bill.updated_at%></p><br>
-      <p> Length: get length of doc</p>
-    </div>
-</div>
-</p>
-
-<p>
-  <strong>About this Bill</strong>
-  <%= @bill.summary.html_safe %>
-</p>
-
-<% if user_signed_in? %>
-<p>
-  <%= link_to upvote_bill_path(@bill), method: :put do %>
-          Support
-          <%= @bill.get_upvotes.size %>
-        <% end %>
-        | <%= link_to downvote_bill_path(@bill), method: :put do %>
-          Oppose
-          <%= @bill.get_downvotes.size %>
-        <% end %>
-        </p>
+        <div style="display: block;" class="box-content">
+          <div class="box-content">
+            <ul class="dashboard-list capitalize">
+              <li>
+                <a href="#">
+                  <%= image_tag @bill.politician.avatar.url(:thumb), class: "avatar-thumb dashboard-avatar"%>
+                </a>
+                <strong>Name :</strong> <%= link_to @bill.politician.full_name %><br>
+                <strong>Position :</strong> <%= @bill.politician.contest.name %><br>
+                <strong>County :</strong><%= link_to @bill.politician.county.name %><br>
+                <strong>Party :</strong><%= @bill.politician.party.name%>
+              </li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="clearfix"></div>
+      
+        <div style="display: block;" class="box-content">
+          <div class="box-content">
+            <ul class="dashboard-list capitalize">
+              <li>
+                <a href="#">
+                  <%= image_tag @bill.document.url(:thumbnail), class: "avatar-thumb dashboard-avatar" %>
+                </a>
+                <strong>Read More :</strong> <a href="#", data-toggle="modal" data-target="#myBill">Read Text </a><br>
+                <strong>Last Updated :</strong> <%= @bill.updated_at.strftime(" %d %b, %Y at %R %p")%><br>
+                <strong>Pages :</strong> Count Pages<br>
+              </li>
+            </ul>
+          </div>
+        </div>
         
-
-
-<% if @bill.user.id == current_user.id %>
-  <%= link_to 'Edit', edit_bill_path(@bill) %> |
-  <%= link_to 'Delete', @bill, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<% else %>
- <%= link_to 'Back', bills_path %> 
-<% end %>
-<% end %>
-
-
-<%= render partial: "comments/template", locals: {commentable: @bill, new_comment: @comment} %> 
-
-<div id="myBill" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-          <!-- Modal content-->
-          <%#unless user_signed_in? %>
-            <div class="modal-content">
-               <iframe src=<%= @bill.document %> width="600" height="780" style="border: none; "> </iframe>
-            </div>
-          <%# end %>
+        <div style="display: block;" class="box-content">
+          <div class="box-content">
+            <ul class="dashboard-list capitalize">
+              <li>
+                <strong>About This Bill :</strong> </a><br>
+                <%= @bill.summary.html_safe %><br>
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="clearfix">
+          <% if user_signed_in? %>
+            <p>
+              <%= link_to upvote_bill_path(@bill), method: :put do %>
+                Support
+                <%= @bill.get_upvotes.size %>
+              <% end %>
+              | <%= link_to downvote_bill_path(@bill), method: :put do %>
+                Oppose
+                <%= @bill.get_downvotes.size %>
+              <% end %>
+            </p>
+              
+            <% if @bill.user.id == current_user.id %>
+              <%= link_to 'Edit', edit_bill_path(@bill) %> |
+              <%= link_to 'Delete', @bill, method: :delete, data: { confirm: 'Are you sure?' } %> |
+            <% else %>
+              <%= link_to 'Back', bills_path %> 
+            <% end %>
+          <% end %>
+        </div>
+        
+        <div class="clearfix"></div>
+        <div class="">
+          <%= render partial: "comments/template", locals: {commentable: @bill, new_comment: @comment} %> 
+        </div>
+        
+        <div id="myBill" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <%#unless user_signed_in? %>
+              <div class="modal-content">
+                 <iframe src=<%= @bill.document %> width="600" height="780" style="border: none; "> </iframe>
+              </div>
+            <%# end %>
+          </div>
         </div>
       </div>
+    </div>
 
-<%##{Rails.root} add that to the google iframe one in the place for url%>
+  
+  
+

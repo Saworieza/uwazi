@@ -14,10 +14,9 @@ class CommentsController < ApplicationController
    redirect_to :back
   end
 
-
   def create
     commentable = commentable_type.constantize.find(commentable_id)
-    @comment = Comment.build_from(commentable, current_user.id, body, approved)
+    @comment = Comment.build_from(commentable, current_user.id, body)
 
     respond_to do |format|
       if @comment.save
@@ -32,7 +31,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :commentable_id, :commentable_type, :comment_id, :approved)
+    params.require(:comment).permit(:body, :approved, :commentable_id, :commentable_type, :comment_id)
   end
 
   def commentable_type
