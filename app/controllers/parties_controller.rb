@@ -72,6 +72,6 @@ class PartiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def party_params
-      params.require(:party).permit(:name, :founded, :abbrev)
+      params.require(:party).permit(:name, :founded, :abbrev, :coalition_id, :avatar)
     end
 end

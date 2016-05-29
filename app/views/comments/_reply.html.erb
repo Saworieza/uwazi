@@ -1,18 +1,18 @@
    <div class="comments-show">
     <div class="">
       
-      <div class="col-xs-12 comment">
+      <div class="col-sm-12 comment">
         <% comments.each do |comment| %> 
-        <div class="col-xs-3">
-          <div class="col-xs-5">
+        <div class="col-sm-4">
+          <div class="col-sm-5">
             <%= image_tag comment.user.avatar(:thumb), class: "avatar-thumb" %>
           </div>
-          <div class="col-xs-7">
+          <div class="col-sm-7">
             <p class="avatar-username"> <%= comment.user.username %></p>
             <p><%= time_ago_in_words(comment.created_at) %> ago</p>
           </div>
         </div>
-        <div class="col-xs-9">
+        <div class="col-sm-9">
           <% if user_signed_in? %>
             <p><%= humanize_boolean(comment.approved) %></p>
             <p><%= comment.body %><br></p>
@@ -26,9 +26,9 @@
               <%= comment.get_downvotes.size %>
             <% end %>
             </p>
-          <% end %>
+          
           <!-- trigger happy . deactvated for now --><p><a href="#" class="comment-reply">reply</a></p> 
-        
+        <% end %>
       
       
         <div class="reply-form">

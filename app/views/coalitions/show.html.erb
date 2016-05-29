@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-<p>Created by <%= @coalition.user.username %></p>
 <p>
   <strong>Name:</strong>
   <%= @coalition.name %>
@@ -11,8 +10,41 @@
 </p>
 
 <% if @coalition.user.id == current_user.id %>
-<%= link_to 'Edit', edit_coalition_path(@coalition) %> |
-<%= link_to 'Delete', @coalition, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Edit', edit_coalition_path(@coalition) %> |
+  <%= link_to 'Delete', @coalition, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% else %>
-<%= link_to 'Back', coalitions_path %>
+  <%= link_to 'Back', coalitions_path %>
 <% end %>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#home">Politicians</a></li>
+  <li><a data-toggle="tab" href="#menu1">Parties</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <h3>Politicians</h3>
+    <p>Politicians in This Coalition</p>
+    <div class="row">
+      <% @coalition.politicians.each do |politician| %>
+        <div class="col-lg-3">
+          <div><%= image_tag politician.avatar.url(:thumb), class: "avatar-thumb" %></div>
+          <div>Name <%= link_to (politician.full_name), politician %></div>
+          <div>Position <%= politician.contest.name %></div>
+          <div>Party <%= politician.party.name %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div id="menu1" class="tab-pane fade">
+    <h3>Parties</h3>
+    
+    <p>There are <%= @coalition.parties.count %>Parties in this Coalition</p>
+    <p>
+      <% @coalition.parties.each do |party| %>
+          <div><%= image_tag party.avatar.url(:thumb) %></div>
+          <div class="capitalize"><%= link_to (party.name), party %></div>
+      <% end %>
+    </p>
+  </div>
+</div>

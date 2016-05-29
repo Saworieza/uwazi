@@ -1,27 +1,68 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @party.name %>
-</p>
-
-<p>
-  <strong>Founded:</strong>
-  <%= @party.founded %>
-</p>
-
-<p>
-  <strong>Abbrev:</strong>
-  <%= @party.abbrev %>
-</p>
-
-<% @party.politicians.each do |politician| %>
-        <div class="col-lg-3">
-          <div><%= image_tag politician.avatar.url(:thumb), class: "avatar-thumb" %></div>
-          <div>Name <%= link_to (politician.full_name), politician %></div>
-          <div>Position <%= politician.contest.name %></div>
-          <div>Party <%= politician.party.name %></div>
+<div class="row">
+  <div class="col-sm-10" style="margin:0 auto;">
+    <div class="col-sm-6">
+      <p>
+        <%= image_tag @party.avatar.url(:thumb) %>
+      </p>
+      
+      <p>
+        <strong>Name:</strong>
+        <%= @party.name %>
+      </p>
+      
+      <p>
+        <strong>Founded:</strong>
+        <%= @party.founded %>
+      </p>
+      
+      <p>
+        <strong>Abbrev:</strong>
+        <%= @party.abbrev %>
+      </p>
+      
+      <p>
+        <strong>Coalition:</strong>
+        <%= @party.coalition.name %>
+      </p>
+      
+      <%= link_to 'Edit', edit_party_path(@party) %> |
+      <%= link_to 'Back', parties_path %>
+    </div>
+    
+    <div class="col-sm-6">
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Politicians</a></li>
+        <li><a data-toggle="tab" href="#menu1">Parties</a></li>
+      </ul>
+      
+      <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+          <h3>Politicians</h3>
+          <p>Politicians in This Coalition</p>
+          <div class="row">
+            <% @party.politicians.each do |politician| %>
+              <div class="col-lg-4">
+                <div><%= image_tag politician.avatar.url(:thumb), class: "avatar-thumb" %></div>
+                <div>Name <%= link_to (politician.full_name), politician %></div>
+                <div>Position <%= politician.contest.name %></div>
+                <div>Party <%= politician.party.name %></div>
+              </div>
+            <% end %>
+          </div>
         </div>
-      <% end %>
-<%= link_to 'Edit', edit_party_path(@party) %> |
-<%= link_to 'Back', parties_path %>
+        <div id="menu1" class="tab-pane fade">
+          <h3>Parties</h3>
+          
+          <p>Parties in this Coalition</p>
+          <p>
+            
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

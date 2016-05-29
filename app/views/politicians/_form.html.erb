@@ -31,6 +31,10 @@
     <%= f.text_field :telephone %>
   </div>
   <div class="field">
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
     <%= f.label :web %><br>
     <%= f.text_field :web %>
   </div>
@@ -39,25 +43,26 @@
     <%= f.text_field :contest_type %>
   </div> -->
   <div class="field">
-    <%= f.label :Position %>
+    <%= f.label :Position %><br>
     <%= f.collection_select :contest_id, Contest.all, :id, :name %>
   </div>
   <div class="field">
-    <%= f.label :Party %>
+    <%= f.label :Party %><br>
     <%= f.collection_select :party_id, Party.all, :id, :name %>
   </div>
   <div class="field">
-    <%= f.label :County %>
+    <%= f.label :County %><br>
     <%= f.collection_select :county_id, County.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Coalition %><br>
+    <%= f.collection_select :coalition_id, Coalition.all, :id, :abbrev %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.cktext_area :description %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
