@@ -30,8 +30,7 @@ gem 'groupdate'
 gem "chartkick"
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
-gem 'material_design_lite-rails'
-gem 'material_icons'
+
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
 gem 'morrisjs-rails'
@@ -54,9 +53,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-group :development, :test do
-  gem 'byebug'
-end
+
 
 group :development do
   gem 'web-console', '~> 2.0'
@@ -70,6 +67,7 @@ end
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'byebug'
 end
 
 

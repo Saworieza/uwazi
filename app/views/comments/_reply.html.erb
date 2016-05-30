@@ -12,7 +12,7 @@
             <p><%= time_ago_in_words(comment.created_at) %> ago</p>
           </div>
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-8">
           <% if user_signed_in? %>
             <p><%= humanize_boolean(comment.approved) %></p>
             <p><%= comment.body %><br></p>

@@ -141,10 +141,6 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
-    material_design_lite-rails (1.1.3)
-      railties (>= 3.1)
-    material_icons (2.2.0)
-      railties (>= 3.2)
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
@@ -298,8 +294,6 @@ DEPENDENCIES
   jquery-datatables-rails!
   jquery-rails
   jquery-ui-rails
-  material_design_lite-rails
-  material_icons
   morrisjs-rails
   paper_trail
   paperclip!

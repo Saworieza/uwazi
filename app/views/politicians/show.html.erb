@@ -34,7 +34,7 @@
             <div class="col-sm-6 col-md-4">
               <div class="person-info">
                 <h3 class="about-subtitle">Personal Information</h3>
-                <h5><span>Born :</span> <%= @politician.born %></h5>
+                <h5><span>Born :</span> <%= @politician.born.strftime(" %d %b, %Y ") %></h5>
                 <h5><span>Phone :</span> <%= @politician.telephone %></h5>
                 <h5><span>Position :</span> <%= @politician.contest.name%></h5>
                 <h5><span>County :</span> <%= @politician.county.name%></h5>
