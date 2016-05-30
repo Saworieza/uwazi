@@ -50,13 +50,26 @@
           <div class="box-content">
             <ul class="dashboard-list capitalize">
               <li>
-                <strong>About This Bill :</strong> </a><br>
-                <%= @bill.summary.html_safe %><br>
+                <strong>About This Bill :</strong> 
+                <div>
+                  <% if @bill.summary.length > 150 %>
+                    <%= truncate(@bill.summary, length: 150, escape: false) %>
+                    <%= link_to '...Read more', '', class: "read-more-#{@bill.id}" %>
+                    <script>
+                      $('.read-more-<%= @bill.id %>').on('click', function(e) {
+                        e.preventDefault()
+                        $(this).parent().html('<%= escape_javascript raw(@bill.summary) %>')
+                      })
+                    </script>
+                  <% else %>
+                    <%= raw(@bill.summary) %>
+                  <% end %>
+                <div>
               </li>
             </ul>
           </div>
         </div>
-  
+        <div class="clearfix"></div>
         <div class="clearfix">
           <% if user_signed_in? %>
             <p>
@@ -79,7 +92,7 @@
           <% end %>
         </div>
         
-        <div class="clearfix"></div>
+        
         <div class="">
           <%= render partial: "comments/template", locals: {commentable: @bill, new_comment: @comment} %> 
         </div>
