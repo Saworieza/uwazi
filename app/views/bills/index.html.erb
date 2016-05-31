@@ -3,9 +3,7 @@
 
 
 <div class="container" style="margin-top:20px;margin:0 auto;"><div class="container" style="margin-top:20px; margin:0 auto;">
-  <% if user_signed_in? %>
-    <%= link_to 'New Bill', new_bill_path %>
-  <% end %>
+ 
   <h4>Listing Bills</h4>
   <div class="row">
      <% @bills.each do |bill| %>

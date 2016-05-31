@@ -7,6 +7,11 @@ gem 'coffee-rails', '~> 4.1.0'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'pundit'
 gem 'rails_admin'
+#next three style the admin theme /patriotic green
+gem 'wysiwyg-rails'
+gem 'icheck-rails'
+gem 'rails_admin_rollincode', git: 'https://github.com/rollincode/rails_admin_theme'
+
 gem 'paper_trail' #track all user activity
 gem 'cancancan'
 #do not ude pundit unless cancan setup doesnt work
@@ -35,8 +40,7 @@ gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
 gem 'morrisjs-rails'
 gem 'raphael-rails'
-gem 'will_paginate'
-gem 'will_paginate-bootstrap'
+gem 'kaminari'
 
 
 gem 'devise'

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users
+  
   resources :constituencies
   resources :contests
   resources :politicians
@@ -24,6 +27,5 @@ Rails.application.routes.draw do
   
   get 'about' => 'static#about', as: :about
   get 'privacy' => 'static#privacyandlegal', as: :privacy
-  devise_for :users
   root 'home#index'
 end

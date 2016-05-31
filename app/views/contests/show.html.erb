@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_contest_path(@contest) %> |
+<%= link_to 'Back', contests_path %>
 
 <p>
   <strong>Name:</strong>
@@ -20,5 +22,13 @@
   <%= @contest.code %>
 </p>
 
-<%= link_to 'Edit', edit_contest_path(@contest) %> |
-<%= link_to 'Back', contests_path %>
+<p>
+	<% @contest.politicians.each do |politician| %>
+        <div class="col-lg-3">
+          <div><%= image_tag politician.avatar.url(:thumb), class: "avatar-thumb" %></div>
+          <div>Name <%= link_to (politician.full_name), politician %></div>
+          <div>Position <%= politician.contest.name %></div>
+          <div>Party <%= politician.party.name %></div>
+        </div>
+      <% end %>
+</p>
