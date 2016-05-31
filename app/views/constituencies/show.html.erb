@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= link_to 'Back', constituencies_path, class: "pull-right" %>
 <p>
   <strong>Name:</strong>
   <%= @constituency.name %>
@@ -13,5 +13,5 @@
   <%= raw(@constituency.description) %>
 </p>
 
-<%= link_to 'Edit', edit_constituency_path(@constituency) %> |
-<%= link_to 'Back', constituencies_path %>
+<%#= link_to 'Edit', edit_constituency_path(@constituency) %> |
+<%#= link_to 'Back', constituencies_path %>

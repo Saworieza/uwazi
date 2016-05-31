@@ -2,6 +2,7 @@
 <p>
   <strong>Name:</strong>
   <%= @coalition.name %>
+  <%= link_to 'Back', coalitions_path, class: "pull-right" %>
 </p>
 
 <p>
@@ -9,12 +10,12 @@
   <%= @coalition.abbrev %>
 </p>
 
-<% if @coalition.user.id == current_user.id %>
-  <%= link_to 'Edit', edit_coalition_path(@coalition) %> |
-  <%= link_to 'Delete', @coalition, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<% else %>
-  <%= link_to 'Back', coalitions_path %>
-<% end %>
+<!-- <%# if @coalition.user.id == current_user.id %>
+  <%#= link_to 'Edit', edit_coalition_path(@coalition) %> |
+  <%#= link_to 'Delete', @coalition, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%# else %>
+  <%#= link_to 'Back', coalitions_path %>
+<%# end %> -->
 
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#home">Politicians</a></li>

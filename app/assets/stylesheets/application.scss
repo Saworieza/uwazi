@@ -62,9 +62,17 @@ ul, label {
 }
 .img-thumbnail{
     border-radius: none;
+    height:110px;
+    width: 110px;
 }
 .avatar-username{
   text-transform: capitalize;
+}
+.tab-content{
+    border: thin solid #ddd;
+    border-top: none;
+/*    margin-top: -1.5em;*/
+    padding:1em;
 }
 
 ul li{

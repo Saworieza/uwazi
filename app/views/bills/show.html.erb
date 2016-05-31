@@ -6,6 +6,7 @@
         <p class="bill-title">
           <strong>Title:</strong>
           <strong><%= @bill.title.html_safe %></strong>
+          <%= link_to 'Back', bills_path, class: "pull-right" %>
         </p>
         <p>
           <strong>Introduced:</strong>
@@ -83,12 +84,12 @@
               <% end %>
             </p>
               
-            <% if @bill.user.id == current_user.id %>
-              <%= link_to 'Edit', edit_bill_path(@bill) %> |
-              <%= link_to 'Delete', @bill, method: :delete, data: { confirm: 'Are you sure?' } %> |
-            <% else %>
-              <%= link_to 'Back', bills_path %> 
-            <% end %>
+            <!-- <%# if @bill.user.id == current_user.id %>
+              <%#= link_to 'Edit', edit_bill_path(@bill) %> |
+              <%#= link_to 'Delete', @bill, method: :delete, data: { confirm: 'Are you sure?' } %> |
+            <%# else %>
+              <%#= link_to 'Back', bills_path %> 
+            <%# end %> -->
           <% end %>
         </div>
         
