@@ -35,7 +35,13 @@ class User < ActiveRecord::Base
     end
   end
   
+  #create pretty urls by overiding the  to_param .. find out why the gem is better. only change then
+  def to_param
+    "#{id} #{username}".parameterize
+  end
+
   def user_params
       params.require(:user).permit(:avatar)
-    end
+  end
+
 end

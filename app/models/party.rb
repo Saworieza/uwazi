@@ -8,4 +8,9 @@ class Party < ActiveRecord::Base
 	def politicians
     	Politician.where(:party_id => self.id).to_a 
   	end
+
+  	#create pretty urls by overiding the  to_param .. find out why the gem is better. only change then
+	def to_param
+	  "#{id} #{name}".parameterize
+	end
 end

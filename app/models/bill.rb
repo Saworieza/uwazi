@@ -9,4 +9,11 @@ class Bill < ActiveRecord::Base
 	  
 	belongs_to :politician
 	belongs_to :user
+
+	#create pretty urls by overiding the  to_param .. find out why the gem is better. only change then
+	def to_param
+	   "#{id} #{title}".parameterize
+	end
+
+
 end

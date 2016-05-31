@@ -13,4 +13,9 @@ class Politician < ActiveRecord::Base
     def bills
     	Bill.where(:politician_id => self.id).to_a 
     end
+
+    #create pretty urls by overiding the  to_param .. find out why the gem is better. only change then
+    def to_param
+      "#{id} #{full_name}".parameterize
+    end
 end
