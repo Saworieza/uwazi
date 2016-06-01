@@ -52,17 +52,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-# gem 'bcrypt', '~> 3.1.7'
-# Use Unicorn as the app server
-# gem 'unicorn'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-
-group :development do
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
 
 group :production do
   gem 'pg'
@@ -73,6 +62,19 @@ group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
 end
+
+group :development do
+    gem 'capistrano',         require: false
+    gem 'capistrano-rvm',     require: false
+    gem 'capistrano-rails',   require: false
+    gem 'capistrano-bundler', require: false
+    gem 'capistrano3-puma',   require: false
+    gem 'web-console', '~> 2.0'
+  	gem 'spring'
+end
+
+gem 'puma'
+
 
 
 
