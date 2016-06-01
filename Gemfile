@@ -16,7 +16,7 @@ gem 'paper_trail' #track all user activity
 gem 'cancancan'
 #do not ude pundit unless cancan setup doesnt work
 #gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit" #help authorize with pundit
-
+gem 'mysql2'
 gem 'jquery-ui-rails'
 gem 'adminlte2-rails'
 gem 'prawn'
