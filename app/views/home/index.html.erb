@@ -1,55 +1,66 @@
-<div class="banner-bottom">
-    <h3 style="color:rgb(0,0,0);">Welcome <span style="color: red;"> To </span><span style="color: green;">Uwazi</span></h3>
+<div>
+	<header class="container-fluid header">
+		<!-- <div class="content">
+	        <div class="center">
+	        	<%= image_tag(("coat.png"), class: "logo_full animated fadeIn") %>
+	            <!-- <img class="logo_full animated fadeIn" src="images/logo_full.png"> --
+	            <div class="intro_blurb home animated fadeInUp">We develop web and mobile software that make your  business more productive (and happy).</div>
+	            <!-- <a class="about_anchor cta-button anchor" href="#about">Our Story &nbsp;&nbsp;<i class="fa  fa-arrow-circle-down fa-lg"></i></a> --
+	        </div>
+	    </div> -->
+	</header>
 </div>
-<!-- services -->
-			<div class="services">
-				<div class="col-md-4 services-grid">
-					<!--<img src="images/track.png" alt=" " class="img-responsive" />-->
-					<%= image_tag(("img-voting-records.png"), class: "img-responsive") %>
-					<div class="services-grd services-grd1">
-						<h4>Track</h4>
-						<p>Track your representatives in Parliament with live vote alerts and official updates .</p>
-						<div class="more">
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 services-grid">
-					<!--<img src="images/engage.png" alt=" " class="img-responsive" />-->
-					<%= image_tag(("engage.png"), class: "img-responsive") %>
-					<div class="services-grd services-grd2">
-						<h4>Engage</h4>
-						<p>Tap into national politics and policy through text, news, photos, and polls.</p>
-						<div class="more">
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 services-grid">
-					<!--<img src="images/parliament2.jpg" alt=" " class="img-responsive" />-->
-					<%= image_tag(("parliament2.jpg"), class: "img-responsive") %>
-					<div class="services-grd services-grd3">
-						<h4>Influence</h4>
-						<p>Vote alongside Members of Parliament to set your own agenda and influence others.</p>
-						<div class="more">
-							<!--<a href="single.html"></a>-->
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-<!-- //services -->
-
-<!-- Trigger the modal with a button -->
-<!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
-
-
-<!-- Modal -->
-      <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-          <!-- Modal content-->
-          <%unless user_signed_in? %>
-            <div class="modal-content">
-               <%= render 'shared/register'%> 
-            </div>
-          <% end %>
-        </div>
-      </div>
+<div class="container">
+	<div class="banner-bottom">
+	  <h3 style="color:rgb(0,0,0);">Welcome <span style="color: red;">To</span>
+	  <span style="color: green;">Uwazi</span></h3>
+	</div><!-- services -->
+	<div class="services">
+	  <div class="col-md-4 services-grid">
+	    <!--<img src="images/track.png" alt=" " class="img-responsive" />-->
+	    <%= image_tag(("img-voting-records.png"), class: "img-responsive") %>
+	    <div class="services-grd services-grd1">
+	      <h4>Track</h4>
+	      <p>Track your representatives in Parliament with live vote alerts and
+	      official updates .</p>
+	      <div class="more"></div>
+	    </div>
+	  </div>
+	  <div class="col-md-4 services-grid">
+	    <!--<img src="images/engage.png" alt=" " class="img-responsive" />-->
+	    <%= image_tag(("engage.png"), class: "img-responsive") %>
+	    <div class="services-grd services-grd2">
+	      <h4>Engage</h4>
+	      <p>Tap into national politics and policy through text, news, photos, and
+	      polls.</p>
+	      <div class="more"></div>
+	    </div>
+	  </div>
+	  <div class="col-md-4 services-grid">
+	    <!--<img src="images/parliament2.jpg" alt=" " class="img-responsive" />-->
+	    <%= image_tag(("parliament2.jpg"), class: "img-responsive") %>
+	    <div class="services-grd services-grd3">
+	      <h4>Influence</h4>
+	      <p>Vote alongside Members of Parliament to set your own agenda and
+	      influence others.</p>
+	      <div class="more">
+	        <!--<a href="single.html"></a>-->
+	      </div>
+	    </div>
+	  </div>
+	  <div class="clearfix"></div>
+	</div><!-- //services -->
+</div>
+	<!-- Trigger the modal with a button -->
+	<!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+	  <div class="modal-dialog">
+	    <!-- Modal content-->
+	    <%unless user_signed_in? %>
+	    <div class="modal-content">
+	      <%= render 'shared/register'%>
+	    </div><%end %>
+	  </div>
+	</div>
+</div>
