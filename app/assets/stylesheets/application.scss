@@ -21,8 +21,8 @@ ul, label {
     padding: 0;
 }
 header{
-    background: linear-gradient(to top right, rgba(0, 0, 255, 0.5), rgba(41, 239, 19, 0.75)), linear-gradient(rgba(0, 0, 255, 0.25) 100%, transparent), url('/assets/parliament.jpg');
-    background-size: contain;
+    background-image: url(image-path('parliament.jpg'));
+/*    background: linear-gradient(to top right, rgba(0, 0, 255, 0.5), rgba(41, 239, 19, 0.75)), linear-gradient(rgba(0, 0, 255, 0.25) 100%, transparent);*/    background-size: contain;
     text-align: center;
 
       /* Set rules to fill background */
