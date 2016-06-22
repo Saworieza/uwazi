@@ -37,10 +37,14 @@
                 <h3 class="about-subtitle">Personal Information</h3>
                 <h5><span>Born :</span> <%= @politician.born.strftime(" %d %b, %Y ") %></h5>
                 <h5><span>Phone :</span> <%= @politician.telephone %></h5>
-                <h5><span>Position :</span> <%= @politician.contest.name%></h5>
-                <h5><span>County :</span> <%= @politician.county.name%></h5>
-                <h5><span>Party :</span> <%= @politician.party.name%></h5>
-                <h5><span>Coalition :</span> <%= @politician.coalition.abbrev %></h5>
+                <h5><span>Position :</span> 
+                  <%= link_to Contest.find(@politician.contest_id).name, contest_path(@politician.contest_id) %></h5>
+                <h5><span>County :</span>
+                <%= link_to County.find(@politician.county_id).name, county_path(@politician.county_id) %></h5>
+                <h5><span>Party :</span> 
+                <%= link_to Party.find(@politician.party_id).name, party_path(@politician.party_id) %></h5>
+                <h5><span>Coalition :</span> 
+                <%= link_to Coalition.find(@politician.coalition_id).abbrev, coalition_path(@politician.coalition_id) %></h5>
                 <h5><span>Primary &amp; Secondary :</span> <%= @politician.primary_secondary_school %></h5>
                 <h5><span>Undergraduate :</span> <%= @politician.undergraduate_school %></h5>
                 <h5><span>Graduate School :</span> <%= @politician.graduate_school %></h5>

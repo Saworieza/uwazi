@@ -22,8 +22,8 @@
         <div class="col-lg-3">
           <div><%= image_tag politician.avatar.url(:thumb), class: "avatar-thumb" %></div>
           <div>Name <%= link_to (politician.full_name), politician %></div>
-          <div>Position <%= politician.contest.name %></div>
-          <div>Party <%= politician.party.name %></div>
+          <div>Position <%= link_to Contest.find(politician.contest_id).name, contest_path(politician.contest_id) %></div>
+          <div>Party <%= link_to Party.find(politician.party_id).name, party_path(politician.party_id) %></div>
         </div>
       <% end %>
     </div>

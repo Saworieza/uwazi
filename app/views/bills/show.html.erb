@@ -21,10 +21,15 @@
                 <a href="#">
                   <%= image_tag @bill.politician.avatar.url(:thumb), class: "avatar-thumb dashboard-avatar"%>
                 </a>
-                <strong>Name : </strong> <%= link_to @bill.politician.full_name %><br>
-                <strong>Position : </strong> <%= link_to @bill.politician.contest.name %><br>
-                <strong>County : </strong><%= link_to @bill.politician.county.name %><br>
-                <strong>Party : </strong><%= link_to @bill.politician.party.name%>
+                <strong>Name : </strong> 
+                <%= link_to Politician.find(@bill.politician_id).full_name, politician_path(@bill.politician_id) %><br>
+                <strong>Position : </strong> 
+                <%= link_to Politician.find(@bill.politician_id).contest.name, politician_path(@bill.politician_id) %>
+                <br>
+                <strong>County : </strong>
+                <%= link_to Politician.find(@bill.politician_id).county.name, politician_path(@bill.politician_id) %><br>
+                <strong>Party : </strong>
+                <%= link_to Politician.find(@bill.politician_id).party.name, politician_path(@bill.politician_id) %>
               </li>
             </ul>
           </div>

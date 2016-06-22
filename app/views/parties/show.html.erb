@@ -26,7 +26,7 @@
       
       <p>
         <strong>Coalition:</strong>
-        <%= @party.coalition.name %>
+        <%= link_to Coalition.find(@party.coalition_id).name, coalition_path(@party.coalition_id) %>
       </p>
       
       <!-- <%#= link_to 'Edit', edit_party_path(@party) %> |
@@ -45,10 +45,11 @@
           <p>Politicians in This Party</p>
           <div class="row">
             <% @party.politicians.each do |politician| %>
-              <div class="col-lg-4">
+              <div class="col-lg-6">
                 <div><%= image_tag politician.avatar.url(:thumb), class: "media-object img-thumbnail" %></div>
                 <div><%= link_to (truncate(politician.full_name, :length => 16, separator: ' ', :escape => false)), politician %></div>
-                <div><%= link_to (politician.contest.name), politician %></div>
+          <div>Position <%= link_to Contest.find(politician.contest_id).name, contest_path(politician.contest_id) %></div>
+                <div> County <%= link_to County.find(politician.county_id).name, county_path(politician.county_id) %></div>
               </div>
             <% end %>
           </div>
