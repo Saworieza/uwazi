@@ -11,6 +11,8 @@ class DebatesController < ApplicationController
   # GET /debates/1
   # GET /debates/1.json
   def show
+    @debate = Debate.find(params[:id])
+    @new_comment = Comment.build_from(@debate, 1, "")
   end
 
   # GET /debates/new

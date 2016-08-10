@@ -14,8 +14,8 @@
           <h3 class="media-heading">
             <strong><%= link_to (politician.full_name), politician %></strong>
           </h3>
-          <p class=""><%= link_to (politician.contest.name), contests_path %> for <%= link_to (politician.county.name), counties_path %>.</p>
-          <p class="capitalize">Member of <%= link_to (politician.party.name), parties_path %>.</p>
+          <p class=""><%= link_to Contest.find(politician.contest_id).name, contest_path(politician.contest_id) %> for <%= link_to County.find(politician.county_id).name, county_path(politician.county_id) %>.</p>
+          <p class="capitalize">Member of <%= link_to Party.find(politician.party_id).name, party_path(politician.party_id) %>.</p>
         </div>
       </div>     
     
