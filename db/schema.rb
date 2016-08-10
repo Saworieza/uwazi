@@ -57,11 +57,11 @@ ActiveRecord::Schema.define(version: 20160810055758) do
     t.string   "abbrev"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "user_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -70,13 +70,13 @@ ActiveRecord::Schema.define(version: 20160810055758) do
     t.string   "title"
     t.text     "body"
     t.string   "subject"
-    t.integer  "user_id",                          null: false
+    t.integer  "user_id",          null: false
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "approved",         default: false
+    t.boolean  "approved"
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
@@ -92,8 +92,11 @@ ActiveRecord::Schema.define(version: 20160810055758) do
 
   create_table "contests", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "contestType"
+    t.string   "location_type"
+    t.string   "code"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "counties", force: :cascade do |t|
@@ -142,6 +145,7 @@ ActiveRecord::Schema.define(version: 20160810055758) do
     t.integer  "party_id"
     t.integer  "coalition_id"
     t.integer  "contest_id"
+    t.integer  "contest_type"
     t.text     "primary_secondary_school"
     t.text     "undergraduate_school"
     t.text     "graduate_school"
