@@ -32,3 +32,9 @@
 
 <%= link_to 'Edit', edit_debate_path(@debate) %> |
 <%= link_to 'Back', debates_path %>
+
+<div class="">
+  <%= render partial: "comments/template", locals: {commentable: @debate, new_comment: @comment} %>
+</div>
+
+<div class="clearfix"></div>
