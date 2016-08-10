@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<strong>Category:</strong>
+	<%= link_to Category.find(@debate.category_id).name, category_path(@debate.category_id) %>
+</p>
+<p>
+  <strong>Title:</strong>
+  <%= @debate.title %>
+</p>
+
+<p>
+	<% if user_signed_in? %>
+            <p>
+              <%= link_to upvote_debate_path(@debate), method: :put do %>
+                Support
+                <%= @debate.get_upvotes.size %>
+              <% end %>
+              | <%= link_to downvote_debate_path(@debate), method: :put do %>
+                Oppose
+                <%= @debate.get_downvotes.size %>
+              <% end %>
+            </p>
+    <% end %>
+</p>
+
+<%= link_to 'Edit', edit_debate_path(@debate) %> |
+<%= link_to 'Back', debates_path %>

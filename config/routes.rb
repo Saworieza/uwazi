@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   
@@ -18,6 +19,12 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :debates do
+    member do
+      put "upvote", to: "debates#upvote"
+      put "downvote", to: "debates#downvote"
+    end
+  end
   resources :bills do
     member do
       put "upvote", to: "bills#upvote"

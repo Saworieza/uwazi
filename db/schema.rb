@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160530155731) do
+ActiveRecord::Schema.define(version: 20160810055758) do
 
   create_table "bills", force: :cascade do |t|
     t.string   "title"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20160530155731) do
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
     t.integer  "politician_id"
+    t.integer  "user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
   end
 
@@ -49,11 +57,11 @@ ActiveRecord::Schema.define(version: 20160530155731) do
     t.string   "abbrev"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.integer  "user_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -62,13 +70,13 @@ ActiveRecord::Schema.define(version: 20160530155731) do
     t.string   "title"
     t.text     "body"
     t.string   "subject"
-    t.integer  "user_id",          null: false
+    t.integer  "user_id",                          null: false
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "approved"
+    t.boolean  "approved",         default: false
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
@@ -84,11 +92,8 @@ ActiveRecord::Schema.define(version: 20160530155731) do
 
   create_table "contests", force: :cascade do |t|
     t.string   "name"
-    t.integer  "contestType"
-    t.string   "location_type"
-    t.string   "code"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "counties", force: :cascade do |t|
@@ -97,6 +102,14 @@ ActiveRecord::Schema.define(version: 20160530155731) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "code"
+  end
+
+  create_table "debates", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
+    t.integer  "user_id"
   end
 
   create_table "parties", force: :cascade do |t|
@@ -129,7 +142,6 @@ ActiveRecord::Schema.define(version: 20160530155731) do
     t.integer  "party_id"
     t.integer  "coalition_id"
     t.integer  "contest_id"
-    t.integer  "contest_type"
     t.text     "primary_secondary_school"
     t.text     "undergraduate_school"
     t.text     "graduate_school"

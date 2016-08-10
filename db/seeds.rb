@@ -24,15 +24,15 @@ CSV.foreach("#{Rails.root}/lib/data/constituency.csv") do |row|
   p row
   Constituency.create!(:id=>row[0],:name => row[1], :county_id =>row[2])
 end
-=end
+CSV.foreach("#{Rails.root}/lib/data/contest.csv") do |row|
+  p row
+  Contest.create!( :id=>row[0],name: row[1], contestType: row[2])
+end
 
 CSV.foreach("#{Rails.root}/lib/data/politician.csv") do |row|
   p row
   Politician.create!(id:row[0],full_name:row[1], contest_type:row[2],party_id:row[3],contest_id:row[4], primary_secondary_school:row[5], undergraduate_school:row[6], graduate_school:row[7],previous_position:row[8])
 end
+=end
 
 
-CSV.foreach("#{Rails.root}/lib/data/contest.csv") do |row|
-  p row
-  Contest.create!( :id=>row[0],name: row[1], contestType: row[2])
-end

@@ -31,6 +31,8 @@ gem 'awesome_nested_set'
 gem 'public_activity'
 gem 'acts_as_follower'
 
+gem 'quiet_assets', group: :development
+
 gem 'prawn-table'
 gem 'groupdate'
 gem "chartkick"

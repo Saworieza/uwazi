@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   belongs_to :county
   has_many :bills
   has_many :coalitions
+  has_many :debates
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
