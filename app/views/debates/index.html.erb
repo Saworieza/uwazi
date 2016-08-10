@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'Create a New Debate', new_debate_path %>
 
 <h1>Listing Debates</h1>
 
@@ -13,10 +14,13 @@
   <tbody>
     <% @debates.each do |debate| %>
       <tr>
-        <td><%= debate.title %></td>
-        <td><%= link_to 'Show', debate %></td>
-        <td><%= link_to 'Edit', edit_debate_path(debate) %></td>
-        <td><%= link_to 'Destroy', debate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to debate.title, debate %><br> 
+
+         <div class="btn-group">
+          <button type="button" class="btn btn-success"><%= debate.get_upvotes.size %> <span class="fa fa-thumbs-o-up"> Support</span></button>
+          <button type="button" class="btn btn-warning"><%= debate.get_downvotes.size %> <span class="fa fa-thumbs-o-down"> Oppose</span></button>
+        </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +28,3 @@
 
 <br>
 
-<%= link_to 'New Debate', new_debate_path %>

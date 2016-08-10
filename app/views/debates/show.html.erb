@@ -11,6 +11,12 @@
 
 <p>
 	<% if user_signed_in? %>
+	<div class="btn-group">
+		Still in development<br>
+          <button type="button" class="btn btn-success"><%= @debate.get_upvotes.size %> <span class="fa fa-thumbs-o-up"> Support</span></button>
+          <button type="button" class="btn btn-warning"><%= @debate.get_downvotes.size %> <span class="fa fa-thumbs-o-down"> Oppose</span></button>
+        </div>
+
             <p>
               <%= link_to upvote_debate_path(@debate), method: :put do %>
                 Support

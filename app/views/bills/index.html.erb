@@ -15,7 +15,12 @@
           </h3>
           <p class="">Bill introduced on <%= bill.date.strftime(" %d %b, %Y ") %></p>
           <p class=""><%= truncate(bill.summary, :length => 250, separator: ' ', :escape => false) %></p>
-          <p class=""><span class="support"><%= bill.get_upvotes.size %> Support </span>| <span class="oppose"><%= bill.get_downvotes.size %> Oppose</span></p>
+          <p class="">
+            <div class="btn-group">
+              <button type="button" class="btn btn-success"><%= bill.get_upvotes.size %> <span class="fa fa-thumbs-o-up"> Support</span></button>
+              <button type="button" class="btn btn-warning"><%= bill.get_downvotes.size %> <span class="fa fa-thumbs-o-down"> Oppose</span></button>
+            </div>
+          </p>
         </div>
       </div>     
     
