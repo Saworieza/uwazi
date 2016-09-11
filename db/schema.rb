@@ -92,11 +92,8 @@ ActiveRecord::Schema.define(version: 20160810055758) do
 
   create_table "contests", force: :cascade do |t|
     t.string   "name"
-    t.integer  "contestType"
-    t.string   "location_type"
-    t.string   "code"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "counties", force: :cascade do |t|
@@ -145,7 +142,6 @@ ActiveRecord::Schema.define(version: 20160810055758) do
     t.integer  "party_id"
     t.integer  "coalition_id"
     t.integer  "contest_id"
-    t.integer  "contest_type"
     t.text     "primary_secondary_school"
     t.text     "undergraduate_school"
     t.text     "graduate_school"
